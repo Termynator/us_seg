@@ -15,18 +15,23 @@ from sklearn.model_selection import StratifiedKFold
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import EarlyStopping, ModelCheckpoint, LearningRateScheduler
 
+import params
+
 K.set_image_data_format('channels_last')
 #K.set_image_dim_ordering('th')
 
 class Unet():
-    def __init__(self,dim):
+    def __init__(self,dim,params):
         self.dim = dim
+        self.params = params
 
     def get_Unet(self):
-        print(K.image_data_format())
         model = Unet_arch(self.dim[0],self.dim[1])
         model.summary()
-        model.compile(loss = bce_dice_loss, optimizer = optimizers.Adam(),metrics = [dice_loss])
+        model.compile(loss = bce_dice_loss,
+                      optimizer = self.params.optimizer, #optimizers.Adam(),
+                      callback = self.params.callbacks,
+                      metrics = [dice_loss])
         return model
 
    
@@ -37,32 +42,23 @@ class Unet():
         model.compile(loss = bce_dice_loss, optimizer = optimizers.Adam(),metrics = [dice_loss])
         return model
 
-    def train(self,image_ds,masks_ds,params):
+    def train(self,image_ds,masks_ds):
         #params
         seed = 7
         np.random.seed(seed)
-        num_folds = params.num_folds
-        batch_size = params.batch_size
-        steps_per_epoch = params.batch_size
-        experiment_name = params.experiment_name
-        num_epochs = params.num_epochs
-        steps_per_epoch = params.steps_per_epoch
+        num_folds = self.params.num_folds
+        batch_size = self.params.batch_size
+        steps_per_epoch = self.params.steps_per_epoch
+        experiment_name = self.params.experiment_name
+        num_epochs = self.params.num_epochs
+        steps_per_epoch = self.params.steps_per_epoch
             
         model = self.get_Unet()
+        print("defined model")
+
         #data augmentation with keras image generator
-        im_data_gen_args = dict(samplewise_center = False,
-                                samplewise_std_normalization = False,
-                                rotation_range=45,
-                                width_shift_range=0.1,
-                                height_shift_range=0.1,
-                                zoom_range=0.1)
-        
-        mk_data_gen_args = dict(samplewise_center = False,
-                                   samplewise_std_normalization = False,
-                                   rotation_range=45,
-                                   width_shift_range=0.1,
-                                   height_shift_range=0.1,
-                                   zoom_range=0.1)
+        im_data_gen_args = self.params.data_gen_args
+        mk_data_gen_args = self.params.data_gen_args
         
         image_datagen = ImageDataGenerator(**im_data_gen_args)
         masks_datagen = ImageDataGenerator(**mk_data_gen_args)
@@ -73,12 +69,14 @@ class Unet():
         print("defined image generator")
         
         model_path = "/home/zeke/Programming/cnn/us_seg/models/"
-        model_save_path = model_path  + "model_" + experiment_name + "_weights.hdf5"
+        model_save_path = model_path  + "model_" + self.params.experiment_name + "_weights.hdf5"
 	#monitor should be related to dice
-        checkpoint = ModelCheckpoint(model_save_path, monitor = 'val_acc', verbose=1, save_best_only=True, mode='max')
-        callbacks = [checkpoint]
-        
-        model.fit_generator(generator,steps_per_epoch=num_steps,epochs=num_epochs,callbacks=callbacks)
+        print("defined callbacks")
+
+        model.fit_generator(generator,
+                            steps_per_epoch=steps_per_epoch,
+                            epochs=num_epochs,
+                            callbacks=self.params.callbacks)
         
 
 #    def k_fold_cv():

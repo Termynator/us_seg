@@ -3,6 +3,7 @@ import os
 import numpy as np
 import skimage.measure
 import nibabel as nib
+import matplotlib.pyplot as plt
 
 def thresh_mask(mask,thresh):
     #thresholds binary image in np array based on thresh
@@ -72,7 +73,8 @@ def load_nii(dataset_path):
 #load images into numpy arrays with padding to acc every image
     num_samples = len(image_filenames)
     image_ds = np.empty([num_samples,DIM_X,DIM_Y,1])
-    masks_ds = image_ds
+    masks_vent_ds = np.empty([num_samples,DIM_X,DIM_Y,1])
+    masks_cone_ds = np.empty([num_samples,DIM_X,DIM_Y,1])
 
     for index,image in enumerate(image_filenames):
         print("Analysing: " + image)
@@ -90,12 +92,14 @@ def load_nii(dataset_path):
         mask_data = mask_nb.get_fdata()
         [x,y,z] = mask_data.shape
         cx,cy = int(x/2),int(y/2)
-        mask_data_padded = pad_image(mask,cx,cy,[DIM_X,DIM_Y])
-        pad_mask[pad_mask == 2] = 1 # cone mask
-        max_val = np.amax(pad_mask[:,:,0])
-        masks_ds[index,:,:,0] = mask_data_padded/max_val
+        mask_data_padded = pad_image(mask_data,cx,cy,[DIM_X,DIM_Y])[:,:,0]
+        mask_data_padded_cone = np.where(mask_data_padded == 1, mask_data_padded, 0)
+        mask_data_padded_cone = np.where(mask_data_padded == 2, mask_data_padded, 1)
+        mask_data_padded_vent = np.where(mask_data_padded >= 1, mask_data_padded, 1)
+        masks_cone_ds[index,:,:,0] = mask_data_padded_cone
+        masks_vent_ds[index,:,:,0] = mask_data_padded_vent
     
-    return image_ds,masks_ds,headers
+    return image_ds,masks_cone_ds,masks_vent_ds,image_headers
 
 
 
