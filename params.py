@@ -17,7 +17,7 @@ class Params():
         #optimizer
         opt = "adam"
         self.decay = 0.001
-        self.learning_rate = 0.001
+        self.init_lr = 0.001
         #stick to default params
         if (opt == "adam"):
             self.optimizer = optimizers.Adam(decay = self.decay)
@@ -38,5 +38,10 @@ class Params():
         self.best =  self.experiment_name + '_best.hdf5'
         self.callbacks = [CSVLogger( self.experiment_name + '.csv', append=True),
                           ModelCheckpoint(self.best, monitor='val_loss', verbose=2, save_best_only=True),
-                          LearningRateScheduler(self.decay, verbose=1)]
+                          LearningRateScheduler(self.drop_decay, verbose=1)]
+
+    def drop_decay(self,epoch):
+        epochs_drop = np.floor(self.num_epochs / (self.ndrops + 1))
+        lr = self.init_lr * np.power(self.drop, np.floor((epoch) / epochs_drop))
+        return lr
                     
