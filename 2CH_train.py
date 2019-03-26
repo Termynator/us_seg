@@ -14,30 +14,28 @@ image_path_2CH = path_2CH + "image/"
 masks_path_2CH = path_2CH + "masks/"
 
 #load numpys
+#TODO make cone ds
+
 image_ds = np.load(numpy_path_2CH + "image_ds.npy")
 masks_ds = np.load(numpy_path_2CH + "masks_cone_ds.npy")
 
 #instantiate params
 name = "cone"
-batch_size = 5
+batch_size = 1
 num_epochs = 200
 steps_per = 50
 num_folds = 0
 
 params = params.Params(name,batch_size,num_epochs,steps_per,num_folds)
-#print(image_ds.shape)
-#print(masks_ds.shape)
-#plt.imshow(masks_ds[0,:,:,0])
-#plt.show()
+print(image_ds.shape)
+print(masks_ds.shape)
+for i in range(0,43):
+    plt.imshow(masks_ds[i,:,:,0])
+    plt.show()
 
 #make dynamic
 size = [800,800] #image_ds.shape[1:3]
 model = unet.Unet(size,params)
 model.get_Unet()
-params = {'dim': size,
-          'batch_size': 2,
-          'num_epochs': 200,
-          'steps_per': 50,
-          'shuffle': True}
-
+print(model.params.callbacks)
 model.train(image_ds,masks_ds)
