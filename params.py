@@ -44,11 +44,6 @@ class Params():
 
          
         #callbacks
-        self.final = self.experiment_name + '_final.hdf5'
-        self.best =  self.experiment_name + '_best.hdf5'
-        self.callbacks = [CSVLogger(model_path + self.experiment_name + '.csv', append=True),
-                          ModelCheckpoint(model_path + self.best, monitor='loss', verbose=2, save_best_only=True),
-                          LearningRateScheduler(self.drop_decay, verbose=1)]
     def drop_decay(self,epoch):
         epochs_drop = np.floor(self.num_epochs / (self.num_drops + 1))
         lr = self.init_lr * np.power(self.drop, np.floor((epoch) / epochs_drop))

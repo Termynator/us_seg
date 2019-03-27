@@ -79,21 +79,21 @@ def load_nii(dataset_path):
     num_samples = len(image_filenames)
     image_ds = np.empty([num_samples,DIM_X,DIM_Y,1])
 
-#    for index,image in enumerate(image_filenames):
-#        print("Analysing: " + image)
-#        image_nb = nib.load(os.path.join(path_image,image))
-#        image_data = image_nb.get_fdata()
-#        [x,y,z,t] = image_data.shape
-#        cx,cy = int(x/2),int(y/2)
-#        image_data_padded = pad_image(image_data,cx,cy,[DIM_X,DIM_Y])
-#        image_data_padded_frame = image_data_padded[:,:,0,frames[index]-1]
-#        image_ds[index,:,:,0] = image_data_padded_frame
+    for index,image in enumerate(image_filenames):
+        print("Analysing: " + image)
+        image_nb = nib.load(os.path.join(path_image,image))
+        image_data = image_nb.get_fdata()
+        [x,y,z,t] = image_data.shape
+        cx,cy = int(x/2),int(y/2)
+        image_data_padded = pad_image(image_data,cx,cy,[DIM_X,DIM_Y])
+        image_data_padded_frame = image_data_padded[:,:,0,frames[index]-1]
+        image_ds[index,:,:,0] = image_data_padded_frame
 
     masks_vent_ds = np.empty([num_samples,DIM_X,DIM_Y,1])
-    masks_cone_ds = np.empty([num_samples,DIM_X,DIM_Y,1])
+    masks_cone_ds = np.empty([0,DIM_X,DIM_Y,1])
+    image_cone_index = []
 
-#    masks_cone_ds = np.empty([0,DIM_X,DIM_Y,1])
-    
+#    masks_cone_ds = np.empty([0,DIM_X,DIM_Y,1]) 
     for index,mask in enumerate(masks_filenames):
         print("Analysing: " + mask)
         mask_nb = nib.load(os.path.join(path_masks,mask))
@@ -102,28 +102,30 @@ def load_nii(dataset_path):
         cx,cy = int(x/2),int(y/2)
         mask_data_padded = pad_image(mask_data,cx,cy,[DIM_X,DIM_Y])[:,:,0]
         max_mask_val = int(np.amax(mask_data_padded))
-        print(max_mask_val) 
+
         #if there are more than 2 masks
         if(max_mask_val >= 2):
-            #vent == 2
-            #cone == 1
-            #background == 0
-            mask_data_padded_vent = mask_data_padded
+            mask_data_padded_vent = np.copy(mask_data_padded)
             mask_data_padded_vent[np.where(mask_data_padded_vent == 1)] = 0
-#            plt.imshow(mask_data_padded_vent)
-#            plt.show()
             masks_vent_ds[index,:,:,0] = mask_data_padded_vent/max_mask_val
 
-            mask_data_padded_cone = mask_data_padded
+            mask_data_padded_cone = np.copy(mask_data_padded)
             mask_data_padded_cone[np.where(mask_data_padded_cone == 2)] = 1
-            masks_cone_ds[index,:,:,0] = mask_data_padded_cone
+            mask_data_padded_cone = mask_data_padded_cone[np.newaxis,:,:,np.newaxis]
+            masks_cone_ds = np.append(masks_cone_ds,mask_data_padded_cone,axis = 0)
+
+            image_cone_index.append(index)
         else:
-            mask_data_padded_vent = mask_data_padded
-            masks_vent_ds[index,:,:,0] = mask_data_padded_vent
-#            plt.imshow(masks_vent_ds[index,:,:,0])
-#            plt.show()
-        
-    return image_ds,masks_cone_ds,masks_vent_ds,image_headers
+            masks_vent_ds[index,:,:,0] = mask_data_padded
+
+    #get images associated with cones for cone ds
+    print(image_cone_index)
+    image_vent_ds = np.copy(image_ds)
+#    image_cone_ds = np.empty_like(masks_cone_ds)
+#    image_ds.take(image_ds,image_cone_index,axis = 0,out = image_cone_ds)
+    image_cone_ds = image_ds[image_cone_index,:,:,:]
+    print(image_cone_ds.shape)
+    return image_cone_ds,image_vent_ds,masks_cone_ds,masks_vent_ds,image_headers
 
 
 
