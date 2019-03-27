@@ -80,8 +80,10 @@ class Unet():
 
 #    def k_fold_cv():
 #
-#    def make_prediction():
-
+    def make_prediction(self,image):
+        #takes a single image and makes prediction
+        prediction = model.predict(image)
+        return prediction
 
 
 def dice_coeff(y_true, y_pred):

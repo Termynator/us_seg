@@ -1,21 +1,24 @@
 import numpy as np
 
 import data
+import unet
 
 # Paths to datasets
 path_2CH = "data/2CH_dataset/"
 numpy_path_2CH = path_2CH + "numpys/"
 #load nifties into numpys
-image_cone_ds,image_vent_ds,masks_cone_ds,masks_vent_ds,img_headers = data.load_nii(path_2CH)
+#image_cone_ds,image_vent_ds,masks_cone_ds,masks_vent_ds,img_headers = data.load_nii(path_2CH)
 
 #save numpys in relavent dirs
 np.save(numpy_path_2CH + "image_cone_ds", image_cone_ds)
 np.save(numpy_path_2CH + "iamge_vent_ds", image_vent_ds)
-#np.save(numpy_path_2CH + "image_nc_ds", image_nc_ds)
 np.save(numpy_path_2CH + "masks_cone_ds", masks_cone_ds)
 np.save(numpy_path_2CH + "masks_vent_ds", masks_vent_ds)
 
+size = image_cone_ds.shape[1:3]
+print(size)
 
+np.save(numpy_path_2CH + "image_nc_ds", image_nc_ds)
 
 
 
