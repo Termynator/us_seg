@@ -21,7 +21,7 @@ K.set_image_data_format('channels_last')
 #K.set_image_dim_ordering('th')
 
 class Unet():
-    def __init__(self,dim,params):
+    def __init__(self,dim,params=None):
         self.dim = dim
         self.params = params
 
@@ -29,7 +29,7 @@ class Unet():
         model = Unet_arch(self.dim[0],self.dim[1])
         model.summary()
         model.compile(loss = bce_dice_loss,
-                      optimizer = self.params.optimizer, #optimizers.Adam(),
+                      optimizer = optimizers.Adam(),#self.params.optimizer
                       metrics = [dice_loss])
         return model
 
@@ -37,6 +37,7 @@ class Unet():
 #    def load_architecture(model,arch_path):
 
     def load_weights(self,weights_path):
+        model = self.get_Unet()
         model.load_weights(weights_path)
         model.compile(loss = bce_dice_loss, optimizer = optimizers.Adam(),metrics = [dice_loss])
         return model
@@ -80,10 +81,10 @@ class Unet():
 
 #    def k_fold_cv():
 #
-    def make_prediction(self,image):
-        #takes a single image and makes prediction
-        prediction = model.predict(image)
-        return prediction
+        def make_prediction(self,image):
+            #takes a single image and makes prediction
+            prediction = model.predict(image)
+            return prediction
 
 
 def dice_coeff(y_true, y_pred):
