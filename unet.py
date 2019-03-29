@@ -21,12 +21,11 @@ K.set_image_data_format('channels_last')
 #K.set_image_dim_ordering('th')
 
 class Unet():
-    def __init__(self,dim,params=None):
-        self.dim = dim
+    def __init__(self,params):
         self.params = params
 
     def get_Unet(self):
-        model = Unet_arch(self.dim[0],self.dim[1])
+        model = Unet_arch(self.params.dim[0],self.params.dim[1])
         model.summary()
         model.compile(loss = bce_dice_loss,
                       optimizer = optimizers.Adam(),#self.params.optimizer
@@ -34,14 +33,6 @@ class Unet():
         return model
 
    
-#    def load_architecture(model,arch_path):
-
-    def load_weights(self,weights_path):
-        model = self.get_Unet()
-        model.load_weights(weights_path)
-        model.compile(loss = bce_dice_loss, optimizer = optimizers.Adam(),metrics = [dice_loss])
-        return model
-
     def train(self,image_ds,masks_ds):
         #params
         seed = 7
@@ -81,10 +72,19 @@ class Unet():
 
 #    def k_fold_cv():
 #
-        def make_prediction(self,image):
-            #takes a single image and makes prediction
-            prediction = model.predict(image)
-            return prediction
+    def make_prediction(self,image):
+        #takes image or images and generates predicted masks
+        model = self.get_Unet()
+        print('defined model')
+        #loads best weights
+        model.load_weights(self.params.best)
+        print('loaded best weights')
+        prediction = np.empty_like(image)
+        for i in range(image.shape[0]):
+            print("Segging Image: " + str(i))
+            #predictions = model.predict_generator(self.validation_gen)
+            prediction[i,:,:,:] = model.predict(image[i:i+1,:,:,:])
+        return prediction
 
 
 def dice_coeff(y_true, y_pred):

@@ -16,7 +16,7 @@ masks_path_2CH = path_2CH + "masks/"
 #load numpys
 #TODO make cone ds
 
-image_ds = np.load(numpy_path_2CH + "image_ds.npy")
+image_ds = np.load(numpy_path_2CH + "image_cone_ds.npy")
 masks_ds = np.load(numpy_path_2CH + "masks_cone_ds.npy")
 
 #instantiate params
@@ -29,9 +29,6 @@ num_folds = 0
 params = params.Params(name,batch_size,num_epochs,steps_per,num_folds)
 print(image_ds.shape)
 print(masks_ds.shape)
-for i in range(0,43):
-    plt.imshow(masks_ds[i,:,:,0])
-    plt.show()
 
 #make dynamic
 size = [800,800] #image_ds.shape[1:3]
