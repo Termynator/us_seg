@@ -1,7 +1,9 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 import data
 import unet
+import params
 
 # Paths to datasets
 path_2CH = "data/2CH_dataset/"
@@ -23,17 +25,22 @@ masks_cone_ds = np.load(numpy_path_2CH + "masks_cone_ds.npy")
 masks_vent_ds = np.load(numpy_path_2CH + "masks_vent_ds.npy")
 
 size = image_cone_ds.shape[1:3]
-print(size)
 
-model = unet.Unet(size)
-model = model.load_weights(model_path + "cone_best.hdf5")
-image_ds = np.empty_like(image_vent_ds)
-for i in range(image_cone_ds.shape[0]):
-    print("Segmenting image: " + str(i))
-    mask = model.make_prediction(image_vent_ds[i:i+1,:,:,:])
-    image = np.multiply(mask,image_ds[i,:,:,:])
-    image_ds[i,:,:,:] = image
-#np.save(numpy_path_2CH + "image_nc_ds", image_nc_ds)
+predict_cone_params = params.Params(dim = size,experiment_name = "cone")
+model = unet.Unet(predict_cone_params)
+
+predicted_masks = model.make_prediction(image_vent_ds)
+#need to threshold and get largest cc
+
+image_nc_ds = np.empty_like(image_vent_ds)
+
+for i in range(predicted_masks.shape[0]):
+    mask = predicted_masks[i,:,:,0]
+    mask = data.thresh_mask(mask,0.5)
+#    mask = data.get_largest_connected_comp(mask)
+    image_nc_ds[i,:,:,:] = np.multiply(predicted_masks[i,:,:,:],image_vent_ds[i,:,:,:])/255
+
+np.save(numpy_path_2CH + "image_nc_ds", image_nc_ds)
 
 
 

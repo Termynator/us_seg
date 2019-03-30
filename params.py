@@ -35,27 +35,37 @@ class Params():
 
         #data augmentation
         self.data_gen_args = dict(samplewise_center = False,
+                                featurewise_center = False,
                                 samplewise_std_normalization = False,
+                                featurewise_std_normalization = False,
                                 rotation_range=45,
                                 width_shift_range=0.1,
                                 height_shift_range=0.1,
-                                zoom_range=0.1)
+                                shear_range = 0.1,
+                                zoom_range=0.1,
+                                vertical_flip = True,
+                                horizontal_flip = True,
+                                fill_mode = "nearest")
 
         self.data_val_args = dict(samplewise_center = False,
+                                featurewise_center = False,
                                 samplewise_std_normalization = False,
+                                featurewise_std_normalization = False,
                                 rotation_range=45,
                                 width_shift_range=0.1,
                                 height_shift_range=0.1,
-                                zoom_range=0.1)
- 
-          
-         #callbacks
-         self.final = self.model_path + self.experiment_name + '_final.hdf5'
-         self.best = self.model_path + self.experiment_name + '_best.hdf5'
+                                shear_range = 0.1,
+                                zoom_range=0.1,
+                                vertical_flip = True,
+                                horizontal_flip = True,
+                                fill_mode = "nearest")
+        #callbacks
+        self.final = self.model_path + self.experiment_name + '_final.hdf5'
+        self.best = self.model_path + self.experiment_name + '_best.hdf5'
         self.callbacks = [CSVLogger(self.model_path + self.experiment_name + '.csv', append=True),
-                          ModelCheckpoint(self.model_path + self.best, monitor='loss', verbose=2, save_best_only=True),
-                          LearningRateScheduler(self.drop_decay, verbose=1)]        
-        
+                          ModelCheckpoint(self.best, monitor='val_loss', verbose=2, save_best_only=True),
+                          LearningRateScheduler(self.drop_decay, verbose=1)]      
+
     def drop_decay(self,epoch):
         epochs_drop = np.floor(self.num_epochs / (self.num_drops + 1))
         lr = self.init_lr * np.power(self.drop, np.floor((epoch) / epochs_drop))
@@ -63,11 +73,10 @@ class Params():
 
     def get_first_epoch(self):
         csv_file = self.model_path + self.experiment_name + '.csv'
-#        if os.path.isfile(csv_file):
-#            with open(csv_file, 'r') as f:
-#                first_epoch = pandas.read_csv(f).iloc[-1]['epoch'] + 1
-#        else:
-#            first_epoch = 0
-        first_epoch = 0
+        if os.path.isfile(csv_file):
+            with open(csv_file, 'r') as f:
+                first_epoch = pandas.read_csv(f).iloc[-1]['epoch'] + 1
+        else:
+            first_epoch = 0
         return first_epoch 
                     

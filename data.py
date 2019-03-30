@@ -1,22 +1,22 @@
 #!/usr/bin/python3
 import os
 import numpy as np
-import skimage.measure
+from skimage import measure
 import nibabel as nib
 import matplotlib.pyplot as plt
 
 def thresh_mask(mask,thresh):
     #thresholds binary image in np array based on thresh
-    mask[mask>thresh] = 0
-    mask[mask<=thresh] = 1
+    mask[np.where(mask<thresh)] = 0
+    mask[np.where(mask>=thresh)] = 1
     return mask
 
 def get_largest_connected_comp(mask):
     #accepts binary image and returns image with latgest connected component
-    lables = measure.label(input = mask, neighbors = 8, return_num = False)
-    lable = labeles[labels == np.argmax(np.bincount(labels.flat))]
-    print(lable)
-    return lable
+    labels = measure.label(input = mask, neighbors = 8, return_num = False)
+    label = labels[labels == np.argmax(np.bincount(labels.flat))]
+    print(label)
+    return label
 
 
 def pad_image(image, cx, cy, desired_size):

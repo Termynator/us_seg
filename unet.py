@@ -33,42 +33,56 @@ class Unet():
         return model
 
    
-    def train(self,image_ds,masks_ds):
+    def train(self,image_trn_ds,masks_trn_ds,image_val_ds = None,masks_val_ds = None,continue_train = False):
         #params
-        seed = 7
-        np.random.seed(seed)
+        seed_np = 6
+        seed_trn = 7
+        seed_val = 8
+        np.random.seed(seed_np)
         num_folds = self.params.num_folds
         batch_size = self.params.batch_size
         steps_per_epoch = self.params.steps_per_epoch
         experiment_name = self.params.experiment_name
         num_epochs = self.params.num_epochs
-        steps_per_epoch = self.params.steps_per_epoch
-            
-        model = self.get_Unet()
-        print("defined model")
+        
+        if continue_train is False:
+            model = self.get_Unet()
+            print("defined new model")
+        if continue_train is True:
+            model = self.get_Unet()
+            model.load_weights(self.params.best)
+            print("loaded model from weights")
 
-        #data augmentation with keras image generator
+        #train data augmentation with keras image generator
         im_data_gen_args = self.params.data_gen_args
         mk_data_gen_args = self.params.data_gen_args
         
         image_datagen = ImageDataGenerator(**im_data_gen_args)
         masks_datagen = ImageDataGenerator(**mk_data_gen_args)
         
-        image_generator = image_datagen.flow(image_ds,seed=seed,batch_size=batch_size)
-        masks_generator = masks_datagen.flow(masks_ds,seed=seed,batch_size=batch_size)
-        generator = zip(image_generator, masks_generator)
-        print("defined image generator")
-        
-        model_path = "/home/zeke/Programming/cnn/us_seg/models/"
-        model_save_path = model_path  + "model_" + self.params.experiment_name + "_weights.hdf5"
-	#monitor should be related to dice
-        print("defined callbacks")
+        image_generator_trn = image_datagen.flow(image_trn_ds,seed=seed_trn,batch_size=batch_size)
+        masks_generator_trn = masks_datagen.flow(masks_trn_ds,seed=seed_trn,batch_size=batch_size)
+        image_generator_val = image_datagen.flow(image_val_ds,seed=seed_val,batch_size=batch_size)
+        masks_generator_val = masks_datagen.flow(masks_val_ds,seed=seed_val,batch_size=batch_size)
 
-        model.fit_generator(generator,
+        train_generator = zip(image_generator_trn, masks_generator_trn)
+        valid_generator = zip(image_generator_val, masks_generator_val)
+        print("defined training and validation image generators")
+
+#        model_path = "/home/zeke/Programming/cnn/us_seg/models/"
+#        model_save_path = model_path  + "model_" + self.params.experiment_name + "_weights.hdf5"
+#	#monitor should be related to dice
+#        print("defined callbacks")
+
+        model.fit_generator(train_generator,
                             steps_per_epoch=steps_per_epoch,
                             epochs=num_epochs,
+                            validation_data = valid_generator,
+                            validation_steps = 5,
                             callbacks=self.params.callbacks)
         
+
+
 
 #    def k_fold_cv():
 #
