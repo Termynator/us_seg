@@ -43,8 +43,8 @@ class Params():
                                 height_shift_range=0.1,
                                 shear_range = 0.1,
                                 zoom_range=0.1,
-                                vertical_flip = True,
-                                horizontal_flip = True,
+                                vertical_flip = False,
+                                horizontal_flip = False,
                                 fill_mode = "nearest")
 
         self.data_val_args = dict(samplewise_center = False,
@@ -56,8 +56,8 @@ class Params():
                                 height_shift_range=0.1,
                                 shear_range = 0.1,
                                 zoom_range=0.1,
-                                vertical_flip = True,
-                                horizontal_flip = True,
+                                vertical_flip = False,
+                                horizontal_flip = False,
                                 fill_mode = "nearest")
         #callbacks
         self.final = self.model_path + self.experiment_name + '_final.hdf5'
@@ -75,7 +75,8 @@ class Params():
         csv_file = self.model_path + self.experiment_name + '.csv'
         if os.path.isfile(csv_file):
             with open(csv_file, 'r') as f:
-                first_epoch = pandas.read_csv(f).iloc[-1]['epoch'] + 1
+                first_epoch = int(pandas.read_csv(f).iloc[-1]['epoch'] + 1)
+                print("Starting from epoch: " + str(first_epoch))
         else:
             first_epoch = 0
         return first_epoch 
