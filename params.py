@@ -16,7 +16,7 @@ class Params():
         self.experiment_name = experiment_name
         self.batch_size = batch_size
         self.first_epoch = self.get_first_epoch()
-        self.num_epochs = num_epochs + self.first_epoch
+        self.num_epochs = num_epochs# + self.first_epoch
         self.steps_per_epoch = steps_per_epoch
         self.decay = 0.001
         self.num_drops = 1

@@ -23,7 +23,7 @@ masks_ds = np.load(numpy_path_2CH + "masks_vent_ds.npy")
 #instantiate params
 name = "2CH_vent"
 batch_size = 1
-num_epochs = 500
+num_epochs = 250
 steps_per = 50
 num_folds = 0
 
@@ -41,5 +41,5 @@ image_train_ds,image_test_ds,masks_train_ds,masks_test_ds = train_test_split(ima
 model = unet.Unet(cone_train_params)
 model.get_Unet()
 print(model.params.callbacks)
-model.train(image_train_ds,masks_train_ds,image_test_ds,masks_test_ds,continue_train = False)
+model.train(image_train_ds,masks_train_ds,image_test_ds,masks_test_ds,continue_train = True)
 #model.train(image_ds,masks_ds,continue_train = True)

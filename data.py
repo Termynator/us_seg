@@ -39,8 +39,24 @@ def pad_image(image, cx, cy, desired_size):
     exit(0)
   return crop
 
+def load_nii_image(image_path,frames,pad = True,dim = [800,800]):
+#loads nii to np and can zero pad to dim
+#returns padded nps from specific frames
+    image_nb = nib_load(image_path)
+    head = image_nb.header
+    image_data = image_nb.get_fdata()
+    [x,y,z,t] = image_data.shape
+    cx,cy = int(x/2),int(y/2)
+    image_data_padded = pad_image(image_data,cx,cy,[dim[0],dim[1])
 
-def load_nii(dataset_path):
+    return_dim = [len(frames),image_data_padded.shape[1],image_data_padded.shape[2]]
+    image_ds = np.empty_like(return_dim)
+    for i in range(return_dim[0])):
+        image_data_padded_frame[i,:,:,:] = image_data_padded[:,:,0,frames[i]-1]
+    return image_data_padded_frame,head
+
+
+def load_nii_ds(dataset_path):
 #given path to dataset(ie 2CH_dataset)
 #get mask filenames and frames
     path_masks = os.path.join(dataset_path,"masks/")
