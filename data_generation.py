@@ -11,6 +11,8 @@ import data
 import params
 import unet
 
+path = "/home/zeke/Programming/cnn/us_seg/"
+data_gen = path + "data_gen/"
 
 #instantiate params
 name = "2CH_vent"
@@ -21,17 +23,19 @@ name = "2CH_vent"
 model = unet.Unet(2CH_data_generation_params)
 model.load_weights()
 
-if args.image
-    #Open image with Iksnap
-    subprocess.call(["itksnap",args.image])   
-    #Select Frames
-    num_frames = input("Enter number of frames: ")
-    frames = []
-    for i in range(num_frames):
-	frames.append(input("Enter frame: "))
-    #nii to np
-    data.load_nii_image( 
-    #np to nii
+for filename in os.listdir(data_gen):
+    if filename.endswith(".nii.gz")
+        print(os.path.join(directory, filename))
+	#Open image with Iksnap
+	subprocess.call(["itksnap",filename])   
+	#Select Frames
+	num_frames = input("Enter number of frames: ")
+	frames = []
+	for i in range(num_frames):
+	    frames.append(input("Enter frame: "))
+	#nii to np
+	data.load_nii_image(filename,frames)
+	#np to nii
 
     #Open Frames in ITK-snap with image for refinement
 
