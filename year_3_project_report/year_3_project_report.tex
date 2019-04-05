@@ -177,33 +177,41 @@ The names of these folders were all uniqe as they came from different hospitals 
 Most patients had both two and four chamber images, with some having multiple of either. 
 the naming convention for the individual images was as follows:
 
-\it{US\_2CH.nii.gz}\\
-\it{US\_4CH.nii.gz}\\
-
+\textit{US\_2CH.nii.gz}\\
+\textit{US\_4CH.nii.gz}\\
 and if there were multiple of one view a two is appended to the end of the name as follows,
-\it{US\_2CH2.nii.gz}\\
+\textit{US\_2CH2.nii.gz}\\
 
 One of the first things that I did was to seperate the dataset into two and four chamber images. However, the image files would need to be renamed so that they could be told apart.
 The name of the directory containing the images was appended to the image filenames so that there would be no confilict of names and the image view sould still be identified by reading the name.
-An example of a filename in this form is as follows:
-\it{KCL\_GC\_001\_US\_4CH2.nii.gz}
+An example of a filename in this form is as follows:\\
+\textit{KCL\_GC\_001\_US\_4CH2.nii.gz}
 Once the images were somewhat sorted, manual segmentation could begin. Behind every competent neural net is a heap of painstakingly aquired data.
 To create a data point the blood pool and ultrasound cone from an individual frame of the nifti file must be segmented. To do this ITK-snap was used to both open the nifti file and produce the segmentations.
 In order to increase variance within the dataset and therfore robustness of the trained network, the chosen frames are at the general point of diastole and systole.
 Most all of the scans taken were of pathological hearts, so finding exact diastole and systole was challenging. Most easily distiguished features of the ecg within the echocardiogram were undistiguishale to our untrained eyes.
 We usually settled on two or threeframes from each scan that looked sufficiently different.
-If more data is needed at a later time, additional frames could be segmented. The product of the segmentation is a mask that contains information on both the boundries of the ultrasound cone and bloodpool of the left ventricle.
+If more data is needed at a later time, additional frames could be segmented.
+The product of the segmentation is a mask that contains information on both the boundries of the ultrasound cone and bloodpool of the left ventricle.
+The background of the mask is always zero. If a cone mask is present, the cone is always one with the ventricle mask valued at two.
+If the ventricle is the only mask present then it will have a value of one.
+TODO(image of mask with cone and vent and mask with only cone)
 As the ultrasound cone is quite simple to identify within the images, we only ended up producing 25 data points with the cone manually segmented.
-Whereas every single mask contained ventricle information.
+\par{}
 In order to train a network on the images, they needed to be a standard resolution.
 Initially this resolution was to be 512 by 512. 512 is a power of two in order to avoid non integer resolutions as the images are downsampled in the unet.
 The raw images in the dataset varied in resolution(TODO exact reses pls) with 512 by 512 being a rough mean.
 We later moved to a resolution of 800 by 800. This change was made based on two factors. 
 We wanted to zero pad the images up to a resolution insead of cropping them or interpolating them to a smaller size.
 Interpolation would give a reproduction of our images at a different resolution  while zero padding would encase the exact original image in zeros.
+Our zero padding scheme attemps to keep the original image in the center of the padding.
+TODO(image of unpadded and padded images)
 While interpolating image data is common practice, the end goal of producing a measuremnt of LVEF in real world units places a higher degree of importance in preserving the pixel spacing and dimension information contained in the image headers.
-As the data generation script took shape, it was clear that keeping the original pixel spacing measurements would save lots of time(TODO make clearer) 
-scaled from 0-1 instead of 0-255,standardized(TODO ask esther!)
+As the data generation script took shape, production of nifti images from numpy arrays and not worrying about pixel spacing was a relief.
+Once the images and masks were a standard resolution the image intensities needed to be scaled from zero to one. This was acheived with scalar division by 255.
+\par{}
+Now the datasets can be created.
+Image_mask
 \paragraph{training}
 \paragraph{validation}
 \paragraph{data generation}
