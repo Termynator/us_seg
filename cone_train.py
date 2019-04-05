@@ -21,10 +21,15 @@ masks_path_2CH = path_2CH + "masks/"
 image_ds = np.load(numpy_path_2CH + "image_cone_ds.npy")
 masks_ds = np.load(numpy_path_2CH + "masks_cone_ds.npy")
 
+plt.imshow(image_ds[0,:,:,0])
+plt.show()
+plt.imshow(masks_ds[0,:,:,0])
+plt.show()
+
 #instantiate params
 name = "cone"
 batch_size = 1
-num_epochs = 100
+num_epochs = 130 
 steps_per = 50
 num_folds = 0
 

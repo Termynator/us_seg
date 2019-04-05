@@ -9,25 +9,25 @@ import unet
 import params
 
 path = "/home/zeke/Programming/cnn/us_seg/"
-path_2CH = path + "data/2CH_dataset/"
+path_4CH = path + "data/4CH_dataset/"
 model_path = path + "models/"
-numpy_path_2CH = path_2CH + "numpys/"
-image_path_2CH = path_2CH + "image/"
-masks_path_2CH = path_2CH + "masks/"
+numpy_path_4CH = path_4CH + "numpys/"
+image_path_4CH = path_4CH + "image/"
+masks_path_4CH = path_4CH + "masks/"
 
 #load numpys
 
-image_ds = np.load(numpy_path_2CH + "image_nc_ds.npy")
-masks_ds = np.load(numpy_path_2CH + "masks_vent_ds.npy")
+image_ds = np.load(numpy_path_4CH + "image_nc_ds.npy")
+masks_ds = np.load(numpy_path_4CH + "masks_vent_ds.npy")
 
-#for i in range(masks_ds.shape[0]):
+#for i in range(image_ds.shape[0]):
 #    plt.imshow(image_ds[i,:,:,0])
 #    plt.show()
 
 #instantiate params
-name = "2CH_vent"
+name = "4CH_vent"
 batch_size = 1
-num_epochs = 700 
+num_epochs = 500
 steps_per = 50
 num_folds = 0
 

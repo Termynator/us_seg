@@ -26,12 +26,16 @@ class Unet():
 
     def get_Unet(self):
         model = Unet_arch(self.params.dim[0],self.params.dim[1])
-        model.summary()
+#        model.summary()
         model.compile(loss = bce_dice_loss,
                       optimizer = optimizers.Adam(),#self.params.optimizer
                       metrics = [dice_loss])
         return model
 
+    def load_weights(self,weights_path = None):
+        model = self.get_Unet()
+        model.load_weights(self.params.best)
+        return model
    
     def train(self,image_trn_ds,masks_trn_ds,image_val_ds = None,masks_val_ds = None,continue_train = False):
         #params
@@ -89,13 +93,13 @@ class Unet():
     def make_prediction(self,image):
         #takes image or images and generates predicted masks
         model = self.get_Unet()
-        print('defined model')
+        print('defined ' + self.params.experiment_name + ' model')
         #loads best weights
         model.load_weights(self.params.best)
         print('loaded best weights')
         prediction = np.empty_like(image)
         for i in range(image.shape[0]):
-            print("Segging Image: " + str(i))
+            print("Segging Image: " + str(i+1))
             #predictions = model.predict_generator(self.validation_gen)
             prediction[i,:,:,:] = model.predict(image[i:i+1,:,:,:])
         return prediction

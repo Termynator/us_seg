@@ -39,21 +39,52 @@ def pad_image(image, cx, cy, desired_size):
     exit(0)
   return crop
 
+def crop_image(image,cx,cy,desired_size):
+  X,Y = image.shape[0:2] 
+  r_x,r_y = int(desired_size[0] / 2),int(desired_size[1] / 2)
+  x1, x2 = cx - r_x, cx + r_x
+  y1, y2 = cy - r_y, cy + r_y
+  x1_, x2_ = max(x1, 0), min(x2, X)
+  y1_, y2_ = max(y1, 0), min(y2, Y)
+  # Crop the image
+  crop = image[x1_: x2_, y1_: y2_]
+  return crop
+
 def load_nii_image(image_path,frames,pad = True,dim = [800,800]):
 #loads nii to np and can zero pad to dim
 #returns padded nps from specific frames
-    image_nb = nib_load(image_path)
+    print("Analysing: " + image_path)
+    image_nb = nib.load(image_path)
     head = image_nb.header
     image_data = image_nb.get_fdata()
     [x,y,z,t] = image_data.shape
     cx,cy = int(x/2),int(y/2)
-    image_data_padded = pad_image(image_data,cx,cy,[dim[0],dim[1])
+    image_data_padded = pad_image(image_data,cx,cy,[dim[0],dim[1]])
+    image_frames = np.empty([0,dim[0],dim[1],1])
+    for i in range(len(frames)):
+        frame = image_data_padded[:,:,0,frames[i]-1]
+        print(frame.shape)
+        print(image_frames.shape)
+        frame = frame[np.newaxis,:,:,np.newaxis]
+        image_frames = np.append(image_frames,frame,axis = 0) 
 
-    return_dim = [len(frames),image_data_padded.shape[1],image_data_padded.shape[2]]
-    image_ds = np.empty_like(return_dim)
-    for i in range(return_dim[0])):
-        image_data_padded_frame[i,:,:,:] = image_data_padded[:,:,0,frames[i]-1]
-    return image_data_padded_frame,head
+    image_frames /= 255.0
+#only pad frames that we want doesnt work get mem error :(
+#    for i in range(len(frames)):
+#        image_data_frame = image_data[:,:,0,frames[i]-1]
+#        image_data_frame = image_data_frame[np.newaxis,:,:,np.newaxis]
+#        image_frames = np.append(image_frames,image_data_frame,axis = 0)
+#    print(image_frames.shape)
+#    [t,x,y,z] = image_frames.shape
+#    cx,cy = int(x/2),int(y/2)
+#    image_data_padded = pad_image(image_frames,cx,cy,[dim[0],dim[1]])
+#
+#    return_dim = [len(frames),dim[0],dim[1]]
+#    print(return_dim)
+#    print(image_data_padded.shape)
+#    image_ds = np.empty_like(return_dim)
+
+    return image_frames,head
 
 
 def load_nii_ds(dataset_path):
@@ -141,6 +172,10 @@ def load_nii_ds(dataset_path):
 #    image_ds.take(image_ds,image_cone_index,axis = 0,out = image_cone_ds)
     image_cone_ds = image_ds[image_cone_index,:,:,:]
     print(image_cone_ds.shape)
+    #remap from from 0-255 to 0-1
+    image_cone_ds /= 255.0
+    image_vent_ds /= 255.0
+
     return image_cone_ds,image_vent_ds,masks_cone_ds,masks_vent_ds,image_headers
 
 
