@@ -39,8 +39,8 @@ def pad_image(image, cx, cy, desired_size):
     exit(0)
   return crop
 
-def crop_image(image,cx,cy,desired_size):
-  X,Y = image.shape[0:2] 
+def crop_image(image,og_size,cx,cy,desired_size):
+  X,Y = og_size 
   r_x,r_y = int(desired_size[0] / 2),int(desired_size[1] / 2)
   x1, x2 = cx - r_x, cx + r_x
   y1, y2 = cy - r_y, cy + r_y
@@ -69,6 +69,7 @@ def load_nii_image(image_path,frames,pad = True,dim = [800,800]):
         image_frames = np.append(image_frames,frame,axis = 0) 
 
     image_frames /= 255.0
+    affine = image_nb.affine
 #only pad frames that we want doesnt work get mem error :(
 #    for i in range(len(frames)):
 #        image_data_frame = image_data[:,:,0,frames[i]-1]
@@ -84,7 +85,7 @@ def load_nii_image(image_path,frames,pad = True,dim = [800,800]):
 #    print(image_data_padded.shape)
 #    image_ds = np.empty_like(return_dim)
 
-    return image_frames,head
+    return image_frames,head,affine
 
 
 def load_nii_ds(dataset_path):
