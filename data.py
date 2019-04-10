@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 import os
 import numpy as np
-from skimage import measure
 import nibabel as nib
 import matplotlib.pyplot as plt
+import cv2
+from skimage import measure
 
 def thresh_mask(mask,thresh):
     #thresholds binary image in np array based on thresh
@@ -12,12 +13,21 @@ def thresh_mask(mask,thresh):
     return mask
 
 def get_largest_connected_comp(mask):
-    #accepts binary image and returns image with latgest connected component
-    labels = measure.label(input = mask, neighbors = 8, return_num = False)
-    label = labels[labels == np.argmax(np.bincount(labels.flat))]
-    print(label)
-    return label
+    #accepts binary image and returns image with largest connected component
+    mask = mask.astype('uint8')
+    nb_components, output, stats, centroids = cv2.connectedComponentsWithStats(mask, connectivity=4)
+    sizes = stats[:, -1]
 
+    max_label = 1
+    max_size = sizes[1]
+    for i in range(2, nb_components):
+        if sizes[i] > max_size:
+            max_label = i
+            max_size = sizes[i]
+
+    mask_lcc = np.zeros(output.shape)
+    mask_lcc[output == max_label] = 1
+    return mask_lcc
 
 def pad_image(image, cx, cy, desired_size):
   """ Crop a 2D image using a bounding box centred at (cx, cy) with specified size """
@@ -88,7 +98,7 @@ def load_nii_image(image_path,frames,pad = True,dim = [800,800]):
     return image_frames,head,affine
 
 
-def load_nii_ds(dataset_path):
+def load_nii_ds(dataset_path,load_cone = True):
 #given path to dataset(ie 2CH_dataset)
 #get mask filenames and frames
     path_masks = os.path.join(dataset_path,"masks/")
@@ -104,13 +114,10 @@ def load_nii_ds(dataset_path):
         image_filenames.append(mask[:-10] + mask[-7:])
         frames.append(int(mask[-9:-7]))
 
-#    DIM_X = 0
-#    DIM_Y = 0
     image_headers = []
 #get dim information from images and store headers in list 
 #TODO
 #get largest dim for square image
-#if not dividble by 2 five times find next largest number that is
     for image in image_filenames:
         image_nb = nib.load(os.path.join(path_image,image))
         head = image_nb.header
@@ -146,7 +153,10 @@ def load_nii_ds(dataset_path):
         print("Analysing: " + mask)
         mask_nb = nib.load(os.path.join(path_masks,mask))
         mask_data = mask_nb.get_fdata()
-        [x,y,z] = mask_data.shape
+        if(mask_data.ndim == 3):
+            [x,y,z] = mask_data.shape
+        else:
+            [x,y] = mask_data.shape
         cx,cy = int(x/2),int(y/2)
         mask_data_padded = pad_image(mask_data,cx,cy,[DIM_X,DIM_Y])[:,:,0]
         max_mask_val = int(np.amax(mask_data_padded))
@@ -177,7 +187,10 @@ def load_nii_ds(dataset_path):
     image_cone_ds /= 255.0
     image_vent_ds /= 255.0
 
-    return image_cone_ds,image_vent_ds,masks_cone_ds,masks_vent_ds,image_headers
+    if(load_cone == True):
+        return image_cone_ds,image_vent_ds,masks_cone_ds,masks_vent_ds,image_headers
+    else:
+        return image_vent_ds,masks_vent_ds,image_headers
 
 
 

@@ -16,6 +16,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import EarlyStopping, ModelCheckpoint, LearningRateScheduler
 
 import params
+import data
 
 K.set_image_data_format('channels_last')
 #K.set_image_dim_ordering('th')
@@ -88,7 +89,8 @@ class Unet():
 
 
 
-#    def k_fold_cv():
+#     def k_fold_cv():
+#         predictions = model.predict_generator(self.validation_gen)
 #
     def make_prediction(self,image):
         #takes image or images and generates predicted masks
@@ -100,8 +102,10 @@ class Unet():
         prediction = np.empty_like(image)
         for i in range(image.shape[0]):
             print("Segging Image: " + str(i+1))
-            #predictions = model.predict_generator(self.validation_gen)
-            prediction[i,:,:,:] = model.predict(image[i:i+1,:,:,:])
+            pred_msk = model.predict(image[i:i+1,:,:,:])
+            pred_msk = data.thresh_mask(pred_msk,thresh = 0.5)
+#            pred_msk = data.get_largest_connected_comp(pred_msk)
+            prediction[i,:,:,:] = pred_msk
         return prediction
 
 
