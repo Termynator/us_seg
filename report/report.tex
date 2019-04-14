@@ -17,17 +17,34 @@
 \section{Ackowledgements}
 \section{Intro}
 \subsection{Motivation}
+%why is the heart important
+Cardiovascular disease is responsible for 17.9 million deaths, or 44\% of all noncommunicable deaths per anum\cite{who_world_health}.
+Detection and monitoring of heart disease is tantamount to treatment and managment of symtoms.%Source please
+Quantification of the interior volume of the left ventricle and thickness of muscle is extremely important due to how illistrative these measurements are to the overall function of the ventricle.\cite{ase_chamber_quant}
+The most prevalent method to assess these metrics is cardiac imaging.
+While there are many imaging modalities, ultrasound has been cemented as a cornerstone of cardiac imaging due to the noninvasive prcedure and realtime image aquisition.
+%why would you want this to be done automaticly
+Interpretation of ultrasound images is both time intensive and challenging for untrained personel.
+The automatic segmentation of the left ventricle bloodpool %and myocardium
+would reduce the need for expert evaluation and inter-operator variance.%cite?
+More access to accurate data in clinical settings is always a good thing... why
+
 \subsection{Metrics}
+%why are these metrics important
+%what do they measure
+%how are they measured/quantified
+Quantification of the performance of the heart is crucial for diagnosis of cardiac pathogy.
+Due to the complexity of the heart and cardiovascular system as a whole the amount that can go worng is staggering.
+We want the metrics that we collect to be illistrative of how the heart is functioning and aid in generating diagnoses.,
+reproducable
+and encompasing.% work on flow and clarity
 
-Assessing the function of the heart is crucial for detecting pathology as well as determining a diagnosis and prognosis for a patient.
-There are many heart metrics that physicians can measure, but two of the most common are left ventricular ejection fraction(LVEF) and left ventricular mass(LVM).
-Before the advent of these metrics, heart rate and blood pressure were the mainstays of cardiac function assessment.
-Without understating the importance of BP and HR, LVEF and LVM are the gold standard for cardiac 
-We are focused on the left ventricle specificly because it is responsible for pumping blood throughout the body.
-
+The two most common metrics that are collected during echocardiograms are left ventricular ejection fraction(LVEF) and left ventricular mass(LVM).\cite{ase_chamber_quant_update}
+These quantifications in conjunction with the visual information of the echocardiogram are potent in the assesment of how effectivly the heart is pumping blood and the health of the myocardium
 \subsection{Ejection Fraction}
 %what is it
-LVEF is a ratio of end diastolic volume(EDV) to end systolic volume(ESV) to indicate how much blood the heart is pumping per beat.
+LVEF is actually the combination of several ventricle volume measurements that are made at different points within the cardiac cycle.
+LVEF quantifies the effectivness of the heart as it is the ratio of end diastolic volume(EDV) to end systolic volume(ESV), indicating how much blood the heart is pumping per beat.
 
 EF it is calculated according to eq 2.
 Eq. 1
@@ -35,8 +52,7 @@ Eq. 1
 Eq. 2
 \[EF = \frac{SV}{EDV} * 100   \]  
 %what is normal
-%little intro sentence 
-Pinning down what is normal LVEF is not trivial.
+Pinning down what is normal LVEF is not trivial and dependent on specifics to individual patients.
 Everyone is different and LVEF that is healthy for one patient might be unhealthy for another.
 LVEF can also change depending on the physical state of the patient when the measurement is made.
 M. E. PFISTERER et al set out to determine ranges of normal LVEF by assessing the mean LVEF within a population of 1200 patients.
@@ -52,16 +68,19 @@ These findings show that there is no bright line to determine what is normal or 
 
 %how is it used
 Many variables affect LVEF, this obfuscates its relation to cardiac health. 
-More context of the condition of the rest of the heart is required in order to make LVEF more useful.
+
+LVEF is useful because it is easy and consistent to measure. It is another peice of data about the function of the heart that can be monitored over time.
+Changes in LVEF can be useful in diagnosing common heart ailments like hypertropic cardiomyopathy heart failure.
 
 Athletes often have LVEF values that below normal even though their hearts are healthy and functional\cite{ef_soa}.
 And LVEF can be within normal values while the function of the heart is impaired.
 This is because EF only depends EDV and ESV and does not take into account the time duration or the geometry of the contraction.
 %how is it measured
-Getting accurate measurements of left ventricle EDV and ESV is not trivial.
-The vast majority of LVEF measurements are carried out by imaging the heart\cite{ef_soa}.
+Measuring LVEF is usually measured noninvasivly with 
+The vast majority of LVEF measurements are carried out by imaging the heart.
  \cite{understanding-echo}
-LVEF values can change depending on the imaging modality being used.
+%as we are primarly working with images need segmentation
+%
 
 \subsection{Left Ventricular Mass}
 %what is it
@@ -99,7 +118,7 @@ Patients that are unable to hold their breath, or those whose heart moves while 
 %What is cardiac CT
 CT imaging is not generally used for cardiac imaging as soft tissue does not provide sufficient contrast.
 The high energy x-rays used in CT are not heavily attenuated by low z elements found in soft tissue.
-Functional imaging of the heart with CT must utilize contrast agents\cite{EF_soa}.
+Functional imaging of the heart with CT must utilize contrast agents\cite{ef_soa}.
 High z compounds are injected into the bloodstream and subsequently imaged to give images of the bloodpool within the LV
 CT imaging has excellent spacial and temporal resolution. 
 Fast image aquisition means minimal motion artefacts when compared to MRI.
@@ -119,31 +138,68 @@ Once the transducer is in a position to image the left ventricle a view must be 
 2CH description.
 4CH description. 
 \subsection{Echocardiogram}
+Echocardiograms are integral to cardiac evaluation.
 \subsection{Segmentation}
+As ultrasound images typicaly have a low signal to noise ratio,
 \subsection{Automatic Segmentation}
+automatic is better think HR and BP
+variance
+older methods
 \subsection{Deep Learning}
-
-Neural nets.
+in thory less assumptions than stat shape models
+can be trained to better robustness
+as computational power increases can be used more and more and gets more powerful
+easy to continue improving networks
+\paragraph{Neural nets}
 Neural networks are computational structures that mimic the function of biological neurons. Networks with sufficeint complexity can model any mathmatical function. 
 The functional unit of neural networks is the neuron.
 Individual neurons, like the whole, will each receive an input and provide an output based on an internal activation function.
-Activation funtions can vary in sophistication from simple step funtions that provide a binary output based on a hard coded threshold, to sigmoid functions that organicaly map the input to a range of values between zero and one.
+Activation funtions can vary in sophistication from simple step funtions that provide a binary output based on a hard coded threshold,
+to sigmoid functions that organicaly map the input to a range of values between zero and one.
 The selection of activation functions will depend on the desired behavior of the network. 
 \par
-One of the simplest configurations of neurons into a network is the perceptron. We will examine a hand written digit classifier multi-layer perceptron(mpl)  to determine how neural networks make decisions. The structure of most networks consist of layers. In mpls, there is an input layer, hidden layers, and the output layer. 
-The input layer in the case of the mnist digit image will simply be a vectorized image. The hidden layers contain the neurons that make the classification decision. The output layer will have a neuron for every class within the dataset so in our digit case we will have ten output neurons(0-9). The output layer will also be a softmax layer. 
-The sum of all neuron values in a softmax layer must sum to one. For a given input each pixel value of our image will get sent to every neuron in the first of the hidden layers. These layers map the image input to a decision of what digit the network thinks it is seeing. If every neuron within the first hidden layer is getting input from every input layer neuron, then the output of every hidden layer neuron will be the same. 
-In order to prevent this, we need to indroduce the ideas of weights. Weights signify the strength of connections between neurons. If a neuron has been strongly associated with a three, in our digit classification example, then there will be neurons that fire strongly when the image provided is a three. The weights in any neual network determine the flow of information through the network and the final decision. In this classification example, each digit from zero to nine has different characteristics about it that make it easily recognisable to our brain as well as a trained neural network. A fully trained network is structurally identical to its untrained counterpart. It is the weights that dictate the strength of the connections and by extention the pathways responsible for the psuedo cognition.
+One of the simplest configurations of neurons into a network is the perceptron.
+We will examine a hand written digit classifier multi-layer perceptron(mpl) to determine how neural networks make decisions.
+The structure of most networks consist of layers. In mpls, there is an input layer, hidden layers, and the output layer. 
+The input layer in the case of the mnist digit image will simply be a vectorized image. The hidden layers contain the neurons that make the classification decision.
+The output layer will have a neuron for every class within the dataset so in our digit case we will have ten output neurons(0-9). The output layer will also be a softmax layer. 
+The sum of all neuron values in a softmax layer must sum to one.
+For a given input each pixel value of our image will get sent to every neuron in the first of the hidden layers.
+These layers map the image input to a decision of what digit the network thinks it is seeing.
+If every neuron within the first hidden layer is getting input from every input layer neuron, then the output of every hidden layer neuron will be the same. 
+In order to prevent this, we need to indroduce the ideas of weights. Weights signify the strength of connections between neurons.
+If a neuron has been strongly associated with a three, in our digit classification example, then there will be neurons that fire strongly when the image provided is a three.
+The weights in any neual network determine the flow of information through the network and the final decision.
+In this classification example, each digit from zero to nine has different characteristics about it that make it easily recognisable to our brain as well as a trained neural network.
+A fully trained network is structurally identical to its untrained counterpart. It is the weights that dictate the strength of the connections and by extention the pathways responsible for the psuedo cognition.
 \par
-The difference between the mlp and a deep network is simply the number of layers. The mlp by convention is limited to one hidden layer and any network with more than one hidden layer is considered deep. Deep networks have seen much more use than mlps recently as computer hardware advancements have allowed the training and implementation of networks with many more than two hidden layers. While the mlp simply took the pixel intensity levels as input and subsequently made decisions based purely on pixel intensity, more and more deep networks are utilising convolutions to extract relavent features from the input images. Convolution involves generating a new image from the input image. Each pixel of this new image is the result of an elementwise multiplication of an original image region and our mask and a . For example, a 3 by 3 averaging mask averages the intensities of a pixel and its eight neighbors to give the intensity of the output pixel. This operation is done for every spot that you can place the mask in the input image to generate the output. The nature of generating a single pixel output from a group of pixels means that there will be inherent
+The difference between the mlp and a deep network is simply the number of layers.
+The mlp by convention is limited to one hidden layer and any network with more than one hidden layer is considered deep.
+Deep networks have seen much more use than mlps recently as computer hardware advancements have allowed the training and implementation of networks with many more than two hidden layers.
+While the mlp simply took the pixel intensity levels as input and subsequently made decisions based purely on pixel intensity, more and more deep networks are utilising convolutions to extract relavent features from the input images.
+Convolution involves generating a new image from the input image. Each pixel of this new image is the result of an elementwise multiplication of a region in the original image and a filter.
+For example, a 3 by 3 averaging mask averages the intensities of a pixel and its eight neighbors to give the intensity of the output pixel.
+This convolution is carried out repeatedly as the filter is swept across the input image.
 \subsection{CNN}
 \paragraph{}
 
-Padding is as simple as adding pixels to the edges of the input image to increase the resolution. Convolution naturally reduces the resolution of the output due to the thickness of the mask. There are many types of mask that can be used in convolutions and they produce a wide variety of output images that highlight different features of the original image. Sobel and laplacian filters make edges bright and flat surfaces dark. Averaging filters can mitigate noisey images and produce blur. The size of mask can also be adjusted. We used an example of a 3x3 mask but larger masks such as 5x5 are also common. Masks are usually square with an odd width and height to ensure a middle pixel. All of the convolutions we have talked about are predetermined. A known mask is applied in order to produce a specific output. In deep convolutional neural networks, the masks are analagous to the mlp weights in that they will be defined through training. The generated masks do share some similarities with some of defined masks that we talked about earlier, because they require such functionality.
-\par
-U-net.
-In order to segment the ventricle of the heart out of an ultrasound image, each and every pixel of the image must be classified as either within the ventricle or not. 
-
+Padding is as simple as adding pixels to the edges of the input image to increase the resolution.
+Convolution naturally reduces the resolution of the output due to the thickness of the mask.
+There are many types of mask that can be used in convolutions and they produce a wide variety of output images that highlight different features of the original image.
+Sobel and laplacian filters make edges bright and flat surfaces dark. Averaging filters can mitigate noisey images and produce blur.
+The size of mask can also be adjusted. We used an example of a 3x3 mask but larger masks such as 5x5 are also common.
+Masks are usually square with an odd width and height to ensure a middle pixel. All of the convolutions we have talked about are predetermined.
+A known mask is applied in order to produce a specific output. In deep convolutional neural networks, the masks are analagous to the mlp weights in that they will be defined through training.
+The nature of optimizing the network to complete segmentations means that the filters within the unet will be optimized to better select and highlight the features within the image that are relavent to the segmentation task at hand.
+For example, the network trained to segment the ultrasound cone from out images will most likely have filters that tend to identify the boundary between the background and ultrasound data,
+while the network trained to segment ventricles should be looking to identify the relatively dark bloodpool and bright myocardium.
+TODO(image)
+\paragraph{UNET}
+The Unet architecture is the standard approach for segmenting both 2D and 3D biomedical imaging data.
+It is strongly reliant on image augmentation to increase the size and variance of comparativly small biomedical image datasets.
+The signature architecture is comprised of a downsampling pathway followed by upsampling to produce a mask that is the same dimension as the input image.
+As the input image is convolved and downsampled, spacial information is converted into feature information.
+Also features that are too large to be encompased by the filters at the original image resolution may be able to be encompased after sufficient downsampling.
 \section{Method}
 \subsection{Dataset}
 \paragraph{•}
@@ -177,26 +233,34 @@ The names of these folders were all uniqe as they came from different hospitals 
 Most patients had both two and four chamber images, with some having multiple of either. 
 the naming convention for the individual images was as follows:
 
-\textit{US\_2CH.nii.gz}\\
-\textit{US\_4CH.nii.gz}\\
+\textit{US\_2CH.nii.gz}
+\textit{US\_4CH.nii.gz}
 and if there were multiple of one view a two is appended to the end of the name as follows,
-\textit{US\_2CH2.nii.gz}\\
+\textit{US\_2CH2.nii.gz}
 
 One of the first things that I did was to seperate the dataset into two and four chamber images. However, the image files would need to be renamed so that they could be told apart.
 The name of the directory containing the images was appended to the image filenames so that there would be no confilict of names and the image view sould still be identified by reading the name.
-An example of a filename in this form is as follows:\\
-\textit{KCL\_GC\_001\_US\_4CH2.nii.gz}
+An example of a filename in this form is as follows:
+\textit{KCL\_GC\_001\_US\_2CH2.nii.gz}
 Once the images were somewhat sorted, manual segmentation could begin. Behind every competent neural net is a heap of painstakingly aquired data.
 To create a data point the blood pool and ultrasound cone from an individual frame of the nifti file must be segmented. To do this ITK-snap was used to both open the nifti file and produce the segmentations.
 In order to increase variance within the dataset and therfore robustness of the trained network, the chosen frames are at the general point of diastole and systole.
-Most all of the scans taken were of pathological hearts, so finding exact diastole and systole was challenging. Most easily distiguished features of the ecg within the echocardiogram were undistiguishale to our untrained eyes.
-We usually settled on two or threeframes from each scan that looked sufficiently different.
+Most all of the scans taken were of pathological hearts, so finding exact diastole and systole was challenging.
+Most easily distiguished features of the ecg within the echocardiogram were undistiguishale to our untrained eyes.
+We usually settled on two or three frames from each scan that looked sufficiently different.
 If more data is needed at a later time, additional frames could be segmented.
 The product of the segmentation is a mask that contains information on both the boundries of the ultrasound cone and bloodpool of the left ventricle.
 The background of the mask is always zero. If a cone mask is present, the cone is always one with the ventricle mask valued at two.
 If the ventricle is the only mask present then it will have a value of one.
 TODO(image of mask with cone and vent and mask with only cone)
 As the ultrasound cone is quite simple to identify within the images, we only ended up producing 25 data points with the cone manually segmented.
+\par{}
+Once a mask was completed it needed to be associated with the correct frame from the correct image.
+The naming convention that we settled on was to simply use the same name as the image with the correct frame number appended to the end of the name.
+\textit{KCL\_GC\_001\_US\_2CH2\_01.nii.gz}
+The above example refers to the mask associated with the first frame of image KCL\_GC\_001\_US\_2CH2.nii.gz.
+This limits us to two digits to determine the frame so we are limited to frames 0-99.
+Most images are well under 100 frames. Images that are longer usually have a full cardiac cycle within the first 100 frames.
 \par{}
 In order to train a network on the images, they needed to be a standard resolution.
 Initially this resolution was to be 512 by 512. 512 is a power of two in order to avoid non integer resolutions as the images are downsampled in the unet.
@@ -207,15 +271,55 @@ Interpolation would give a reproduction of our images at a different resolution 
 Our zero padding scheme attemps to keep the original image in the center of the padding.
 TODO(image of unpadded and padded images)
 While interpolating image data is common practice, the end goal of producing a measuremnt of LVEF in real world units places a higher degree of importance in preserving the pixel spacing and dimension information contained in the image headers.
-As the data generation script took shape, production of nifti images from numpy arrays and not worrying about pixel spacing was a relief.
+As the data generation script took shape, moving data from nifti to numpy array and back again without worrying about pixel spacing was a relief.
 Once the images and masks were a standard resolution the image intensities needed to be scaled from zero to one. This was acheived with scalar division by 255.
 \par{}
-Now the datasets can be created.
-Image_mask
+Now that the data has been standardised, we can construct the datasets for training.
+As some masks contain both ventricle and cone information, they must be processed to produce a seperate ventricle and cone mask.
+At the initial round of training the cone dataset consisted of 25 image and mask pairs and the two chamber dataset consisted of 43 image and mask pairs.
+
 \paragraph{training}
+Due to the small amount of data that we were working with along with memory restrictions, on the fly data augmentation was going to be crucial to the performance of the porject.
+The premise was to apply random image transformations to an image and mask pair to generate a "new" peice of data from a base image.
+We decided to use the keras data generator class, which is capapble of perfroming a multitude of rigid image transformations. 
+While some non-rigid transformations could be useful, we needed them to be precise enough to only deform the ventricle as we wanted the cone to remain undeformed.
+We needed to tread the fine line of augmenting our data in a way that increases the variation within the dataset without going too far.
+Too much augmentation that is too drastic could lead to the network struggling to find any sort of pattern without an immense amount of training.
+Due to machine and time constraints training needed to be as efficient as possible.
+After some trial and error we settled on the folloeing parameters to define our image and mask datagenerator:
+\begin{enumerate}
+	\item{rotation range of 45 degrees}
+	\item{width shift range of 10\% of total image width}
+	\item{height shift range of 10\% of total image height}
+	\item{shear range of 0.1 EXPLAIN!}
+	\item{zoom range of 0.1 EXPLAIN!}
+	\item{fill mode of nearest so most likely zero}
+\end{enumerate}
+We apply this same augmentation scheme to both the training and validation data to increase the size and variance of both sets.
+It is customary in machine learning, to take some data that could be used for training, and use it insead to test the trained model.
+Here we would give the trained model an image that it had never seen before and have it predict a mask.
+Comparison between the predicted and true masks gives us a better understanding at the effectivness of the model.
+As the model is literaly optimized to perform on the training data, using this data to validate its performance would not illistrate any ability to perform on real life data.
+\paragraph{Results validation}
+To assess the performance of our model we will both assess the performance with a K fold cross validation scheme and compare the accuracy of the predicted LVEF and LVM.
+K fold cross validation involves a number of steps.
+\begin{enumerate}
+	\item{Split the dataset into K equal groups}
+	\item{Select one group for the test set and have the rest be training data}
+	\item{train K models so that every data point gets to be in the test set}
+\end{enumerate}
+\paragraph{training params}
+We settled into traning parameters early in the project.
+We needed to ensure that we would train long enough to get our validation loss sufficently low, while minimizing training time.
+For
+optimizer
+loss
+saving
+
+
+\paragraph{class organisation}
 \paragraph{validation}
 \paragraph{data generation}
-
 
 
 %\begin{center}
@@ -226,6 +330,6 @@ Image_mask
 
 
 \bibliography{sources}
-\bibliographystyle{ieeetr}
+\bibliographystyle{IEEEtran}
 
 \end{document}
