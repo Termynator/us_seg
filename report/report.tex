@@ -22,9 +22,9 @@ Cardiovascular disease is responsible for 17.9 million deaths, or 44\% of all no
 Detection and monitoring of heart disease is tantamount to treatment and managment of symtoms.%Source please
 Quantification of the interior volume of the left ventricle and thickness of muscle is extremely important due to how illistrative these measurements are to the overall function of the ventricle.\cite{ase_chamber_quant}
 The most prevalent method to assess these metrics is cardiac imaging.
-While there are many imaging modalities, ultrasound has been cemented as a cornerstone of cardiac imaging due to the noninvasive prcedure and realtime image aquisition.
+While there are many imaging modalities, ultrasound has been cemented as a cornerstone of cardiac imaging due to the noninvasive prcedure low coat and realtime image aquisition.
 %why would you want this to be done automaticly
-Interpretation of ultrasound images is both time intensive and challenging for untrained personel.
+Interpretation of ultrasound images is time intensive and can be challenging even for trained personel.
 The automatic segmentation of the left ventricle bloodpool %and myocardium
 would reduce the need for expert evaluation and inter-operator variance.%cite?
 More access to accurate data in clinical settings is always a good thing... why
@@ -35,12 +35,13 @@ More access to accurate data in clinical settings is always a good thing... why
 %how are they measured/quantified
 Quantification of the performance of the heart is crucial for diagnosis of cardiac pathogy.
 Due to the complexity of the heart and cardiovascular system as a whole the amount that can go worng is staggering.
-We want the metrics that we collect to be illistrative of how the heart is functioning and aid in generating diagnoses.,
+We want the metrics that we collect to be illistrative of how the heart is functioning,
 reproducable
-and encompasing.% work on flow and clarity
+and easy to understand....% work on flow and clarity
 
 The two most common metrics that are collected during echocardiograms are left ventricular ejection fraction(LVEF) and left ventricular mass(LVM).\cite{ase_chamber_quant_update}
 These quantifications in conjunction with the visual information of the echocardiogram are potent in the assesment of how effectivly the heart is pumping blood and the health of the myocardium
+
 \subsection{Ejection Fraction}
 %what is it
 LVEF is actually the combination of several ventricle volume measurements that are made at different points within the cardiac cycle.
@@ -51,19 +52,28 @@ Eq. 1
 \[SV = EDV - ESV\]
 Eq. 2
 \[EF = \frac{SV}{EDV} * 100   \]  
+
 %what is normal
-Pinning down what is normal LVEF is not trivial and dependent on specifics to individual patients.
-Everyone is different and LVEF that is healthy for one patient might be unhealthy for another.
+Pinning down what is normal LVEF is not trivial as it is very patient specific.
+Everyone is different and an LVEF measurement that is normal for one patient might be unhealthy for another.
 LVEF can also change depending on the physical state of the patient when the measurement is made.
-M. E. PFISTERER et al set out to determine ranges of normal LVEF by assessing the mean LVEF within a population of 1200 patients.
+The patient's level of cardiovascular stress and wether they are supine or seated will all change the measured LVEF.
+M. E. PFISTERER et al set out to determine ranges of normal LVEF by assessing the mean LVEF within a population of 1200 patients using ultrasound.
 The lower limit of normal LVEF values for men has been estimated to be $ 51.1 \pm 4.2\%$ with the upper limit of normal being$ 76.6 \pm 3.8\%$.
 These values were assessed with echocardiogram while the patient was supine and at rest.
-LVEF was also assesed with the more accurate but invasive x-ray angiography, and no signifigant differences were found.
-There were no signifigant differences in LVEF between sexes or age groups, except for patients over 60 who had slightly elevated LVEF levels.
+LVEF was also assesed with the more accurate but invasive x-ray angiography; no signifigant differences were found.
+LVEF was for the most part independent of sex or age group, except for patients over 60 who had slightly elevated LVEF levels.
 Patients that were able to exercise then reached 85\% of their maximal HR before their LVEF was measured.
 On average, Men had an LVEF increase of 10.5\% while women only saw an increase of 5.3\%.
 Young patient LVEF increased about 6\% more than older patients\cite{norm_EF_values}.
 These findings show that there is no bright line to determine what is normal or abnormal in LVEF.
+
+The American Society of Echocardiogrphy has published generatl guidelines for LVEF classification.
+Reduced <= 40\%
+borderline 41\%-49\%
+normal 50\%-70\&
+
+
 
 
 %how is it used
@@ -72,8 +82,13 @@ Many variables affect LVEF, this obfuscates its relation to cardiac health.
 LVEF is useful because it is easy and consistent to measure. It is another peice of data about the function of the heart that can be monitored over time.
 Changes in LVEF can be useful in diagnosing common heart ailments like hypertropic cardiomyopathy heart failure.
 
-Athletes often have LVEF values that below normal even though their hearts are healthy and functional\cite{ef_soa}.
+Athletes can often test for LVEF below normal even though their hearts are healthy and functional\cite{ef_soa}.
+
 And LVEF can be within normal values while the function of the heart is impaired.
+HFpEF
+HFrEF
+LV systolic func
+LV diastolic func
 This is because EF only depends EDV and ESV and does not take into account the time duration or the geometry of the contraction.
 %how is it measured
 Measuring LVEF is usually measured noninvasivly with 
@@ -85,6 +100,11 @@ The vast majority of LVEF measurements are carried out by imaging the heart.
 \subsection{Left Ventricular Mass}
 %what is it
 LVM is a measure of how thick the myocardium of the left ventricle is.
+It is a strong predictor for cardiovascular events\cite{cardiac_chamber_quant_update}, as it is an excellent indicator of the health of the myocardium.
+LVM should be measured at the end of diastole, when the left ventricle is relaxed and full of blood.
+
+%how is it calculated
+%what can it tell us
 Hypertropic cardiomyopathy(HCM), as indicated via elevated LVM(how elevated?) occurs when the left ventricle myocardium thickens to a point where heart function is impaired.
 There are elevated risks of dilated cardiomyopathy in athletes as the natural thickening of the ventricle walls due to exercise can mask the condition.
 
@@ -100,11 +120,14 @@ Imaging the heart has the ability of providing detailed structural information o
 The most common imaging modalities used image the heart are Magnetic resonance imaging(MRI), x-ray computed tomography(CT), and ultrasound(US).
 
 %what is MRI
-MRI employs strong magnetic fields and particle spin to 
-MRI offers unparralleled contrast between different biological tissues.
+MRI employs strong magnetic fields and quantum mechanical properties of particles to get signal from the presence of hydrogen ions ie protons.
+The behavior of protons within the context of an MRI scan is highly dependent on the structure and magnetic properties of the tissue surrounding each proton.
+However, the scanner is not getting signal from individual protons but groups of protons within each voxel of the image.
 MRI is usually noninvasive but can require the use of contrast agents.
-Contrast agents are not usually used in cardiac MRI as the bloodpool and myocardium have good contrast, however gadolinium based agents can highlight structural differences within the myocardium.%need ref
+Contrast agents are usually used in cardiac MRI to detect scar tissue in the myocardium.
+As infarcted tissue by definition has limited or absent blood supply, the perfusion of contrast agents through the myocardium will highlight damaged regions.
 %MRI pros
+MRI offers unparralleled contrast between different biological tissues.
 Once the heart has been scanned, it is relatively easy to calculate the interior volume of the left ventricle.
 For example, region growing methods are usually used  to directly calculate the volume from the 3D scan.
 This approach is very accurate as no assumptions are made about the shape of the ventricle.
@@ -114,6 +137,9 @@ However, scanners are usually in short supply, require skilled operators, are ex
 When the subject of the image is moving, long image aquisition time can lead to motion artefacts.
 Patients must hold their breath while their heart is being imaged to avoid introducing such artefacts.
 Patients that are unable to hold their breath, or those whose heart moves while it pumps may be illsuited for MRI.
+Additionally, due to the extremely strong magnetic fields present within the scanner, those with electrical or ferrous metal implants will not be able to be scanned.
+Some medical implants are labeled as MRI conditional, meaning that they are safe to be scanned, with some limitations to the scan.
+However, due to the complex restrictions placed on scanning these devices, the increased expense of MRI condtional technology and the relative rarity of such devices, most clinitians elect to use an alernative imaging modality.\cite{
 
 %What is cardiac CT
 CT imaging is not generally used for cardiac imaging as soft tissue does not provide sufficient contrast.
@@ -128,18 +154,23 @@ However, the radiation dose and use of contrast agents make cardiac CT rare.
 %short as details will come from next section
 
 \subsection{Ultrasound}
-
-Ultrasound is a modality unlike most others. 
-High frequency sound waves are sent into the body, reflected refracted and scattered, and picked up by the same transducer that produced the original sound pulse. 
-These sound waves are reflected most strongly across boundries of differing acoustic impedance.
-However, imaging the heart with ultrasound does present some problems.
-The ribcage encases the heart and a transducer that can fit inbetween the ribs must be used as bone is effectivly opaque to the sound pulses. 
-Once the transducer is in a position to image the left ventricle a view must be chosen. 
-2CH description.
-4CH description. 
+Ultrasound as used for echocardiograms is the core of cardiac imaging. 
+It is the most widely used and prevalent modality to assess the structure and function of the heart.
+Ultrasound is robust as different scanner modes allow for 2D and 3D image and video aquisition.
+Doppler imaging allows for blood flow analysis and the use of contrast agents can provide increased levels of contrast.
+The relatively small size of ultrasound scanners when compared to MR and CT make echocardiograms more flexible than other modalities.
+Patients can 
+TTE
+TEE
+2D
+3D
+2CH
+4CH
 \subsection{Echocardiogram}
 Echocardiograms are integral to cardiac evaluation.
 \subsection{Segmentation}
+Trabeculae as myo \cite{jacc_ef_p_and_c}
+
 As ultrasound images typicaly have a low signal to noise ratio,
 \subsection{Automatic Segmentation}
 automatic is better think HR and BP
