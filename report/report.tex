@@ -139,9 +139,10 @@ Patients must hold their breath while their heart is being imaged to avoid intro
 Patients that are unable to hold their breath, or those whose heart moves while it pumps may be illsuited for MRI.
 Additionally, due to the extremely strong magnetic fields present within the scanner, those with electrical or ferrous metal implants will not be able to be scanned.
 Some medical implants are labeled as MRI conditional, meaning that they are safe to be scanned, with some limitations to the scan.
-However, due to the complex restrictions placed on scanning these devices, the increased expense of MRI condtional technology and the relative rarity of such devices, most clinitians elect to use an alernative imaging modality.\cite{
+However, due to the complex restrictions placed on scanning these devices, the increased expense of MRI condtional technology and the relative rarity of such devices, most clinitians elect to use an alernative imaging modalities.\cite{mri_implants}
 
 %What is cardiac CT
+CT imaging imvolves taking many 2D x-ray images from different angles then using computed tomography algorithums to genreate 3D images.
 CT imaging is not generally used for cardiac imaging as soft tissue does not provide sufficient contrast.
 The high energy x-rays used in CT are not heavily attenuated by low z elements found in soft tissue.
 Functional imaging of the heart with CT must utilize contrast agents\cite{ef_soa}.
@@ -169,6 +170,11 @@ TEE
 \subsection{Echocardiogram}
 Echocardiograms are integral to cardiac evaluation.
 \subsection{Segmentation}
+Once the echocardiogram has been completed, the images must be analysed by a trained professional in order to calculate meaningful metrics.
+Both LVM and LVEF require segmentation, where some regions of the image are identified
+
+%image of segmented and undsegmented image
+
 Trabeculae as myo \cite{jacc_ef_p_and_c}
 
 As ultrasound images typicaly have a low signal to noise ratio,
@@ -176,6 +182,8 @@ As ultrasound images typicaly have a low signal to noise ratio,
 automatic is better think HR and BP
 variance
 older methods
+faster
+can analyse every image aquired and provide realtime analysis
 \subsection{Deep Learning}
 in thory less assumptions than stat shape models
 can be trained to better robustness
@@ -211,6 +219,7 @@ While the mlp simply took the pixel intensity levels as input and subsequently m
 Convolution involves generating a new image from the input image. Each pixel of this new image is the result of an elementwise multiplication of a region in the original image and a filter.
 For example, a 3 by 3 averaging mask averages the intensities of a pixel and its eight neighbors to give the intensity of the output pixel.
 This convolution is carried out repeatedly as the filter is swept across the input image.
+
 \subsection{CNN}
 \paragraph{}
 
@@ -230,8 +239,22 @@ The Unet architecture is the standard approach for segmenting both 2D and 3D bio
 It is strongly reliant on image augmentation to increase the size and variance of comparativly small biomedical image datasets.
 The signature architecture is comprised of a downsampling pathway followed by upsampling to produce a mask that is the same dimension as the input image.
 As the input image is convolved and downsampled, spacial information is converted into feature information.
+What constitutes as feature information would not make much sense anywhere but within the workings of the neural network.
+The information that is distilled as the image progresses through the downsampling phase is direclty related to the overall purpose of the network. The feature information in our case will be vital to the network to generate predicted masks for a given image.
+
+%read the unet paper and fill this section out this is the core of the project
+
 Also features that are too large to be encompased by the filters at the original image resolution may be able to be encompased after sufficient downsampling.
+%image illistrating filter size in comparison to say apex of heart in image of full res
 \section{Method}
+\subsection{programming env}
+google colab
+keras
+anaconda
+tf-gpu
+ubuntu
+python
+nibabel
 \subsection{Dataset}
 \paragraph{•}
 The raw dataset was provided to me consists of pathological echocardiography images from 95 patients. 
@@ -243,7 +266,7 @@ Constructing the final network that will segment cardiac ultrasound will be brok
 \item Train a network on 2CH bloodpool data
 \item Train a network on 4CH bloodpool data
 \item Train a network on both 2CH and 4CH bloodpool data
-\item Depending on the success of combining 2 and 4CH data, train a network to segment the blood pool and epicardium
+\item Depending on the success of combining 2 and 4CH data, train a network to segment the blood pool and myocardium
 
 \end{enumerate}
 \paragraph{•}

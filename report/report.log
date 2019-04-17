@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.29)  16 APR 2019 12:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.29)  16 APR 2019 14:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -243,12 +243,29 @@ LaTeX Warning: Citation `ase_chamber_quant_update' on page 1 undefined on input
  line 42.
 
 [1]
-Overfull \hbox (3.3329pt too wide) in paragraph at lines 95--96
+
+LaTeX Warning: Citation `cardiac_chamber_quant_update' on page 2 undefined on i
+nput line 103.
+
+[2]
+Overfull \hbox (3.3329pt too wide) in paragraph at lines 111--112
 []\OT1/cmr/m/n/10 Dilated car-diomy-opa-thy(DCM) as in-di-cated by lower than n
 or-mal LVM(again
  []
 
-[2] [3] [4] [5]
+
+LaTeX Warning: Citation `mri_implants' on page 3 undefined on input line 142.
+
+[3]
+
+LaTeX Warning: Citation `jacc_ef_p_and_c' on page 4 undefined on input line 178
+.
+
+[4] [5]
+Missing character: There is no â in font cmbx10!
+Missing character: There is no € in font cmbx10!
+Missing character: There is no ¢ in font cmbx10!
+ [6]
 Missing character: There is no â in font cmbx10!
 Missing character: There is no € in font cmbx10!
 Missing character: There is no ¢ in font cmbx10!
@@ -261,22 +278,19 @@ Missing character: There is no ¢ in font cmbx10!
 Missing character: There is no â in font cmbx10!
 Missing character: There is no € in font cmbx10!
 Missing character: There is no ¢ in font cmbx10!
-Missing character: There is no â in font cmbx10!
-Missing character: There is no € in font cmbx10!
-Missing character: There is no ¢ in font cmbx10!
- [6] [7] [8] (./report.bbl [9]) [10] (./report.aux)
+ [7] [8] [9] (./report.bbl) [10] (./report.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2697 strings out of 492982
- 38525 string characters out of 6134896
- 104460 words of memory out of 5000000
- 6237 multiletter control sequences out of 15000+600000
+ 2700 strings out of 492982
+ 38586 string characters out of 6134896
+ 105460 words of memory out of 5000000
+ 6240 multiletter control sequences out of 15000+600000
  9369 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,25p,503b,211s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,6n,25p,503b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -285,7 +299,7 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmti10.pfb>
-Output written on report.pdf (11 pages, 131428 bytes).
+Output written on report.pdf (11 pages, 133663 bytes).
 PDF statistics:
  72 PDF objects out of 1000 (max. 8388607)
  50 compressed objects within 1 object stream
