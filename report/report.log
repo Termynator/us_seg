@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.29)  16 APR 2019 14:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.23)  19 APR 2019 19:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **report.tex
 (./report.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 5 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -142,21 +142,24 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
+)
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -229,80 +232,138 @@ e
 ))
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./report.toc)
+\tf@toc=\write3
+\openout3 = `report.toc'.
 
-LaTeX Warning: Citation `who_world_health' on page 1 undefined on input line 21
+ [2]
+
+LaTeX Warning: Citation `who_world_health' on page 1 undefined on input line 37
 .
 
 
-LaTeX Warning: Citation `ase_chamber_quant' on page 1 undefined on input line 2
-3.
+LaTeX Warning: Citation `ase_chamber_quant' on page 1 undefined on input line 3
+9.
 
 
-LaTeX Warning: Citation `ase_chamber_quant_update' on page 1 undefined on input
- line 42.
+Overfull \hbox (5.25284pt too wide) in paragraph at lines 37--47
+\OT1/cmr/m/n/12 dis-ease is tan-ta-mount to treat-ment and man-ag-ment of sym-t
+oms.Quantification
+ []
 
 [1]
 
-LaTeX Warning: Citation `cardiac_chamber_quant_update' on page 2 undefined on i
-nput line 103.
+LaTeX Warning: Citation `ase_chamber_quant_update' on page 2 undefined on input
+ line 58.
 
-[2]
-Overfull \hbox (3.3329pt too wide) in paragraph at lines 111--112
-[]\OT1/cmr/m/n/10 Dilated car-diomy-opa-thy(DCM) as in-di-cated by lower than n
+[2] [3]
+
+LaTeX Warning: Citation `cardiac_chamber_quant_update' on page 4 undefined on i
+nput line 119.
+
+[4]
+Overfull \hbox (19.16948pt too wide) in paragraph at lines 127--128
+[]\OT1/cmr/m/n/12 Dilated car-diomy-opa-thy(DCM) as in-di-cated by lower than n
 or-mal LVM(again
  []
 
 
-LaTeX Warning: Citation `mri_implants' on page 3 undefined on input line 142.
+Overfull \hbox (0.68344pt too wide) in paragraph at lines 127--128
+\OT1/cmr/m/n/12 what is nor-mal) oc-curs when the left ven-tri-cle my-ocardium 
+thins and stretches
+ []
 
-[3]
 
-LaTeX Warning: Citation `jacc_ef_p_and_c' on page 4 undefined on input line 178
-.
+Overfull \hbox (6.44589pt too wide) in paragraph at lines 136--137
+\OT1/cmr/m/n/12 o-nance imag-ing(MRI), x-ray com-puted to-mog-ra-phy(CT), and u
+l-tra-sound(US). 
+ []
 
-[4] [5]
-Missing character: There is no â in font cmbx10!
-Missing character: There is no € in font cmbx10!
-Missing character: There is no ¢ in font cmbx10!
- [6]
-Missing character: There is no â in font cmbx10!
-Missing character: There is no € in font cmbx10!
-Missing character: There is no ¢ in font cmbx10!
-Missing character: There is no â in font cmbx10!
-Missing character: There is no € in font cmbx10!
-Missing character: There is no ¢ in font cmbx10!
-Missing character: There is no â in font cmbx10!
-Missing character: There is no € in font cmbx10!
-Missing character: There is no ¢ in font cmbx10!
-Missing character: There is no â in font cmbx10!
-Missing character: There is no € in font cmbx10!
-Missing character: There is no ¢ in font cmbx10!
- [7] [8] [9] (./report.bbl) [10] (./report.aux)
+[5]
+
+LaTeX Warning: Citation `mri_implants' on page 6 undefined on input line 164.
+
+[6] [7] [8] [9]
+
+LaTeX Warning: Citation `jacc_ef_p_and_c' on page 10 undefined on input line 22
+3.
+
+
+Overfull \hbox (72.56627pt too wide) detected at line 231
+\OML/cmm/m/it/12 Volumeofdisk \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 pi\OT1/cmr/m/n
+/12 (\OML/cmm/m/it/12 d\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 =\OT1/cmr/m/n/12 2) \O
+MS/cmsy/m/n/12 ^^C \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 d\OT1/cmr/m/n/12 2\OML/cmm
+/m/it/12 =\OT1/cmr/m/n/12 2) \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 heightofdisk
+Volumeofheart \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 summationofthedisks
+ []
+
+
+LaTeX Warning: Citation `ase_quant_update' on page 10 undefined on input line 2
+33.
+
+[10] [11] [12] [13] [14] [15] [16] [17] [18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 402--406
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 407--411
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--415
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
+
+ []
+
+
+Overfull \hbox (1.25798pt too wide) in paragraph at lines 418--430
+\OT1/cmr/m/n/12 gin. Be-hind ev-ery com-pe-tent neu-ral net-work is a metic-u-l
+ously crafted dataset.
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 431--433
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 434--435
+
+ []
+
+[23] [24] [25] [26]
+
+LaTeX Warning: Citation `adam_opt' on page 27 undefined on input line 542.
+
+[27] [28] [29] (./report.bbl [30]) [31] (./report.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2700 strings out of 492982
- 38586 string characters out of 6134896
- 105460 words of memory out of 5000000
- 6240 multiletter control sequences out of 15000+600000
- 9369 words of font info for 34 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 41i,6n,25p,503b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmti10.pfb>
-Output written on report.pdf (11 pages, 133663 bytes).
+ 2741 strings out of 494880
+ 39289 string characters out of 6179600
+ 99004 words of memory out of 5000000
+ 6032 multiletter control sequences out of 15000+600000
+ 10280 words of font info for 37 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 41i,6n,25p,487b,213s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on report.pdf (33 pages, 134436 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 134 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

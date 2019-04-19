@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \title{Automatic Left Ventricle Segmentation in Ultrasound}
 \date{2018}
 \author{Ezequiel Ortiz}
@@ -6,15 +6,31 @@
 \usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage{cite}
+\usepackage{setspace}
 
 \begin{document}
 
 \maketitle
 \pagenumbering{gobble}
 \newpage
+\tableofcontents
+\newpage
+\doublespacing
 \pagenumbering{arabic}
+
 \section{Abstract}
+This report outlines our investigation into the performance of deep learning methods on semantic segmentation of the left ventricle bloodpool and myocardium from 2D echocardiogram images.
 \section{Ackowledgements}
+Esther
+Andy
+Bram
+Nick
+Irina
+James
+american
+Mom
+Dad
+Lauren
 \section{Intro}
 \subsection{Motivation}
 %why is the heart important
@@ -125,6 +141,8 @@ The behavior of protons within the context of an MRI scan is highly dependent on
 However, the scanner is not getting signal from individual protons but groups of protons within each voxel of the image.
 MRI is usually noninvasive but can require the use of contrast agents.
 Contrast agents are usually used in cardiac MRI to detect scar tissue in the myocardium.
+Scar can form when the blood supply to regions of the heart becomes restricted or halted.
+As scar is not electricly active like healthy myocardium, its presence will impair hearts ability to pump as well as increase the likely hood electrical pathologies like ventricular tachycardia and fibulation.
 As infarcted tissue by definition has limited or absent blood supply, the perfusion of contrast agents through the myocardium will highlight damaged regions.
 %MRI pros
 MRI offers unparralleled contrast between different biological tissues.
@@ -137,6 +155,10 @@ However, scanners are usually in short supply, require skilled operators, are ex
 When the subject of the image is moving, long image aquisition time can lead to motion artefacts.
 Patients must hold their breath while their heart is being imaged to avoid introducing such artefacts.
 Patients that are unable to hold their breath, or those whose heart moves while it pumps may be illsuited for MRI.
+This long image aquisition time also prevents the cardiac cycle from being captured in real time.
+The CMR images are captured at equivalent points within the caridac cycle using the ECG to time each capture point.
+As CMR image aquisition gets faster this will be less of a problem, but for now the CMR images are an average heart over many cycles.
+Metrics gathered from CMR images are generally easier to calculate and more accurate but eliminate beat to beat variation.
 Additionally, due to the extremely strong magnetic fields present within the scanner, those with electrical or ferrous metal implants will not be able to be scanned.
 Some medical implants are labeled as MRI conditional, meaning that they are safe to be scanned, with some limitations to the scan.
 However, due to the complex restrictions placed on scanning these devices, the increased expense of MRI condtional technology and the relative rarity of such devices, most clinitians elect to use an alernative imaging modalities.\cite{mri_implants}
@@ -156,32 +178,72 @@ However, the radiation dose and use of contrast agents make cardiac CT rare.
 
 \subsection{Ultrasound}
 Ultrasound as used for echocardiograms is the core of cardiac imaging. 
+High frequency sound waves are sent into the body, reflected refracted and scattered, and picked up by the same transducer that produced the original sound pulse. 
+These sound waves are reflected most strongly across boundries of differing acoustic impedance.
+In the images in our dataset this is illitstrated with a distinct boundary between the myocardium and the bloodpool.
+However, imaging the heart with ultrasound does present some problems.
+The ribcage encases the heart and a transducer that can fit inbetween the ribs must be used as bone is effectivly opaque to the sound pulses. 
+When the heart is imaged accross the ribcage the scan is called a transthoracic echocardiogram(TTE).
+Even with correct positioning there can still be some shadowing from the ribs present in some images.
+Imaging around the ribs can be circumvented with transesophogeal echocardiograms(TEE). 
+This type of scan involves placing the ultrasound probe down the patients esophagus an imaging the heart from within the ribcage.
+While TEE does provide higher quality images, it is usually reserved for aquiring detailed information about the atria or valves of the heart.
+TTEs are much more common than TEEs due to the invasive TEE procedure and marginal increase in detail for routine echocardiograms.
+
 It is the most widely used and prevalent modality to assess the structure and function of the heart.
 Ultrasound is robust as different scanner modes allow for 2D and 3D image and video aquisition.
 Doppler imaging allows for blood flow analysis and the use of contrast agents can provide increased levels of contrast.
-The relatively small size of ultrasound scanners when compared to MR and CT make echocardiograms more flexible than other modalities.
-Patients can 
-TTE
-TEE
+The relatively small size of ultrasound scanners when compared to MR and CT make ultrasound machines much more flexible.
+Unlike the other modalities where the patient is physicly placed within the scanner, the ultrasound probe is positioned around the patient.
+In most echocardiograms, both a 2CH view and 4CH view is taken. 
+As these image views are aproximatly orthoganal, information from both can be combined for a better understaning of the hearts 3 dimensional shape.
 2D
 3D
 2CH
 4CH
 \subsection{Echocardiogram}
 Echocardiograms are integral to cardiac evaluation.
-\subsection{Segmentation}
+ECG
+\subsection{Manual Segmentation}
 Once the echocardiogram has been completed, the images must be analysed by a trained professional in order to calculate meaningful metrics.
-Both LVM and LVEF require segmentation, where some regions of the image are identified
-
+Both LVM and LVEF require segmentation, where some regions of the image are identified and marked as part of the myocardium or bloodpool.
 %image of segmented and undsegmented image
+In the case of LVEF, in order to minimise the assumptions being made about the shape of the ventricle, both the 2CH and 4CH views are segmented.
+\par
+The American Society of Echocardiography and European Association of Cardiovascular imaging have published a set of guidelines for LV chamber quantification that are as follows.
+As most ultrasound machines that are used for echocardiograms come with software for segmenting bloodpools, these steps should be considered within that context.
+First, frames of diastole and systole must be identified.
+This will facilitated by the use of the single lead ECG that is present on the images.
+The QRS complex indicate the beginning of ventricular depolarisation or systole, while the T wave indicates the beginning of repolarisation or diastole.
+%ECG image
+\par
+Then a line will be drawn from the mitrial valve annulus, a fibrous ring at the base of the valve that shows up bright in most echos, along the endocardial border and to the other side of the annulus.
+The beginning and end of the line must be connected with a straigt line that ignores the postion of the valve. 
+%images of line in progress
+Trabecualtions are regions on the epicardium where blood becomes trapped and calcified within the myocadium.\cite{jacc_ef_p_and_c}
+They can look like myocardium within echo images and should not be counted as such when determining LV volume. 
+\par
+From the straight line accross the valve, the longest othagonal line is then drawn that connects the valve line to the epicardium at the apex of the heart.
+Now the bi-plane method of disk summation, or Simpson's Bi-plane, can be used to calculate the LV volume.
+\begin{equation}
+	Volume of disk = pi(d1/2)*(d2/2)*height of disk
+	Volume of heart = summation of the disks
+\end{equation}
 
-Trabeculae as myo \cite{jacc_ef_p_and_c}
+This method is widely used but suffers from endocardial dropout, user variation, and incompatiability with some deformed ventricles.\cite{ase_quant_update}
+\par
+Our procedure  mirrored the steps laid out in the guidelines, but differed slightly.
+As we quickly found out, most of the hearts within our data were pathological so the ECG shape was not very useful
+%shitty ECG image
+In these cases we simply tried to find frames that looked like they contained the largest and smallest LV volumes.
+We also struggled with endocardial dropout as highlighted in the guidelines.
 
-As ultrasound images typicaly have a low signal to noise ratio,
 \subsection{Automatic Segmentation}
 automatic is better think HR and BP
 variance
 older methods
+kalmann filter
+
 faster
 can analyse every image aquired and provide realtime analysis
 \subsection{Deep Learning}
@@ -189,7 +251,7 @@ in thory less assumptions than stat shape models
 can be trained to better robustness
 as computational power increases can be used more and more and gets more powerful
 easy to continue improving networks
-\paragraph{Neural nets}
+\par % Neural nets
 Neural networks are computational structures that mimic the function of biological neurons. Networks with sufficeint complexity can model any mathmatical function. 
 The functional unit of neural networks is the neuron.
 Individual neurons, like the whole, will each receive an input and provide an output based on an internal activation function.
@@ -221,7 +283,7 @@ For example, a 3 by 3 averaging mask averages the intensities of a pixel and its
 This convolution is carried out repeatedly as the filter is swept across the input image.
 
 \subsection{CNN}
-\paragraph{}
+\par
 
 Padding is as simple as adding pixels to the edges of the input image to increase the resolution.
 Convolution naturally reduces the resolution of the output due to the thickness of the mask.
@@ -234,7 +296,8 @@ The nature of optimizing the network to complete segmentations means that the fi
 For example, the network trained to segment the ultrasound cone from out images will most likely have filters that tend to identify the boundary between the background and ultrasound data,
 while the network trained to segment ventricles should be looking to identify the relatively dark bloodpool and bright myocardium.
 TODO(image)
-\paragraph{UNET}
+
+\subsection{UNET}
 The Unet architecture is the standard approach for segmenting both 2D and 3D biomedical imaging data.
 It is strongly reliant on image augmentation to increase the size and variance of comparativly small biomedical image datasets.
 The signature architecture is comprised of a downsampling pathway followed by upsampling to produce a mask that is the same dimension as the input image.
@@ -242,22 +305,80 @@ As the input image is convolved and downsampled, spacial information is converte
 What constitutes as feature information would not make much sense anywhere but within the workings of the neural network.
 The information that is distilled as the image progresses through the downsampling phase is direclty related to the overall purpose of the network. The feature information in our case will be vital to the network to generate predicted masks for a given image.
 
+Skip connections
+upsampling
+max pooling
 %read the unet paper and fill this section out this is the core of the project
 
 Also features that are too large to be encompased by the filters at the original image resolution may be able to be encompased after sufficient downsampling.
 %image illistrating filter size in comparison to say apex of heart in image of full res
+
 \section{Method}
-\subsection{programming env}
-google colab
-keras
-anaconda
-tf-gpu
-ubuntu
-python
-nibabel
+\subsection{Programming Enviornment}
+During the first stages of the project, we worked within the Google Colab enviornment.
+Google colab is an online coding suite where python code can be run from a web browser.
+We chose colab becasue of the free cloud gpu that would be needed to train the network.
+Colab mimics jupyter notebooks functionality in that code can be split up and run in sections even within the same script.
+We were also unconstrained by a physical computer and code could be written and ran from any web broweser given access to the project.
+However there were some downsides to colab that prompted the eventual switch.
+All of the data for training and validation had to be stored in the google drive of the account that owns the project.
+Any changes that were made to the dataset had to be uploaded to drive, and we had to make sure that the dataset was the most recent iteration.
+The performance of the cloud gpu was not as fast as a local gpu.
+Some longer training regimes were halted on account of google colab becomming idle and ending our processes.
+This was more of a issue before we implemented model checkpoints that allowed us to save model progress as it was training.
+Google colab was an excellent starting point for the project as it removed lots of start up cost for a deep learning project such as this, but the downsides outweighed the benefits in the end.
+
+The move to running our code and storing our data on a local machine came once we started getting promising results with the bloodpool segmentation.
+As the bloodpool was considerably more complicated to segment than the ultrasound cone, the need for more intense training prompted a move.
+We moved our project to a pc containing an Nvidia GTX 1060 gpu and running Ubuntu 18.04.
+After installing the relavent cuda drivers for the gpu and ananconda to manage our python libraries our training regimes were faster and could run for longer.
+
+
+\subsection{python modules}
+
+We chose Ubuntu as an operating system because it is free and open software.
+As the project is as much about working with data as it is programming, the Bash terminal has been an indespensible tool.
+While the learning curve has been steep, we find oursleves settled into linux using vim to write all of the code and report.
+Vim is extremely and extremely powerful and extesible terminal text editor.
+Tmux, a terminal multiplexer, has extented the capabilty of the terminal by allowing us to perform many tasks within one window.
+The power of bash scripts has allowed to perform monotonous manual tasks such as renaming every file in a directory with one line of code.
+\par
+Python is the language of choice due to the many well maintained modules geared for deep learning.
+\par
+We use anaconda to maintain our python programming enviornment.
+Anaconda gives us complete control over package versions to avoid dependency problems.
+For example, we have to use python version 3.6.8 insead of the more recent python 3.7.3 as tenforflow cannot yet run on python 3.7 at the time of writing.
+With anaconda we can have a tensorflow enviornment where we can use this older version of python and still have the ability to use the most recent releases by changing enviornments.
+\par
+The core of project from a programming perspective is keras.
+Keras is a high level python module that wraps tensorflow.
+Tensorflow is the most ubiquitous deep learning library and converts python code into gpu optimised c++ code.
+The parallel proccessing power of GPUs is extremely well suited for the intensive image operations and extensive backpropogation steps that training CNNs involves.
+Keras is mostly used for quick prototyping projects.
+Its ease of use lends itself to quick implementations and not production code.
+Pure tensorflow is much more powerful,but signifigantly more complex than keras, but we never found our work impeded by keras.
+\par
+Numpy is an extremely popular python matrix library.
+It has an extensive set of methods that allow for a diverse set of optimised matrix operations.
+As our images were stored in numpy arrays, most every operation in the dataset preprocessing section relies on numpy functions.
+Keras is designed to work with datasets that are stored in numpy arrays due the optimizations built into the module.
+\par
+As the images were stored in nifti files, we needed a way to properly read the files into memory.
+After looking at both simpleitk and nibabel, we settled on nibabel.
+We use nibabel to read the nifti files into memory from storage.
+We can then extract the image information, image header, and affine from the nifti file.
+The image information is then stored in numpy arrays.
+The image header contains the dimensions of the pixels in the image.
+%TODO example of image header
+If our end goal is to generate approximations of volume, we need to correspond pixels to physical distances.
+The affine of a nifti image contains information that relates the coordinates of the nifti image to world coordinates in RAS+ space. 
+This has to do with radiological conventions that govern how medical data is interacted with and viewed in computers.
+We use affines to generate nifti files from our predicted masks.
+As each mask corresonds to a specific image all the information that we need to turn the numpy array that is returned from our network predictions into a nifti file to be stored on disk is stored in the image header and affine.
+
 \subsection{Dataset}
-\paragraph{•}
-The raw dataset was provided to me consists of pathological echocardiography images from 95 patients. 
+\par
+The raw dataset that was provided to us consisted of pathological echocardiography images from 96 patients. 
 Most patients had both a 2CH and 4CH view of their heart. The files are stored as zipped nifti images and are 2D grayscale videos of the heart through multiple diastole systole cycles.
 Constructing the final network that will segment cardiac ultrasound will be broken up into several successive steps.
 
@@ -266,37 +387,35 @@ Constructing the final network that will segment cardiac ultrasound will be brok
 \item Train a network on 2CH bloodpool data
 \item Train a network on 4CH bloodpool data
 \item Train a network on both 2CH and 4CH bloodpool data
-\item Depending on the success of combining 2 and 4CH data, train a network to segment the blood pool and myocardium
-
+\item Depending on the success of combining 2 and 4CH data, train a network to segment the myocardium
 \end{enumerate}
-\paragraph{•}
+
+\par % consider moving
 The purpose of segmenting the ultrasound cone from the rest of the image to make successive training easier.
-% *the purpose of segmenting the ultrasound cone from the rest of the images IS TO MAKE successive training easier
-Eliminating image data that is irrelavent to the segmentation of the heart saves the network from having to learn that the extraneous information is so. The build up to the final network allows me to gradually build up the training dataset.
-
-
-\paragraph{•}
-Once the dataset is complete, conversion into a form that can be used to train the U-nets is the same for 2CH and 4CH images. As this project was written within Google Colaboratory on account of the free cloud GPU, all of the image data was hosted on my personal Google Drive which was then mounted within the colab enviornment. 
-\paragraph{•}
+Eliminating image data that is irrelavent to the segmentation of the heart saves the network from having to learn that the extraneous information is extraneous. The build up to the final network allows me to gradually build up the training dataset.
+\par
 The images need to be converted into numpy arrays before they are used to train the network. The python library nilearn is used to convert the zipped nifti files into numpy arrays. The images are then resized to a resolution of 512 by 512 and the intensities are remapped from 0-255 to 0-1. The images are then collectively stored in a 4th order tensor with dimensions (number of images, X dimension, Y dimension, color channel). This allows for easy manipulation with Keras
-\paragraph{•}
+\par
 The masks go through the same resizing conversion from nifty to numpy array. As the mask images can contain cone or ventricle masks, one layer of the masks must be chosen for training. This is accomplished via a thresholding operation to elminate either the cone or ventricle mask. Once the correct mask confiuration has been chosen, the masks can be resized and stored in a fourth order tensor as well.
-\paragraph{dataset preprocessing}
-The data was presented to me in the form of 96 folders, each corresponding to a certain patient.
+
+\subsubsection{dataset preprocessing}
+The data was presented to us in the form of 96 folders, each corresponding to a certain patient.
 The names of these folders were all uniqe as they came from different hospitals at different times and were aquired by different machines and operators.
 Most patients had both two and four chamber images, with some having multiple of either. 
-the naming convention for the individual images was as follows:
+the naming convention for the individual images was as follows:\\
 
-\textit{US\_2CH.nii.gz}
-\textit{US\_4CH.nii.gz}
+\textit{US\_2CH.nii.gz}\\
+\textit{US\_4CH.nii.gz}\\
 and if there were multiple of one view a two is appended to the end of the name as follows,
-\textit{US\_2CH2.nii.gz}
+\textit{US\_2CH2.nii.gz}\\
 
 One of the first things that I did was to seperate the dataset into two and four chamber images. However, the image files would need to be renamed so that they could be told apart.
 The name of the directory containing the images was appended to the image filenames so that there would be no confilict of names and the image view sould still be identified by reading the name.
-An example of a filename in this form is as follows:
-\textit{KCL\_GC\_001\_US\_2CH2.nii.gz}
-Once the images were somewhat sorted, manual segmentation could begin. Behind every competent neural net is a heap of painstakingly aquired data.
+An example of a filename in this form is as follows:\\
+
+\textit{KCL\_GC\_001\_US\_2CH2.nii.gz}\\
+
+Once the images were somewhat sorted, manual segmentation could begin. Behind every competent neural network is a meticulously crafted dataset.
 To create a data point the blood pool and ultrasound cone from an individual frame of the nifti file must be segmented. To do this ITK-snap was used to both open the nifti file and produce the segmentations.
 In order to increase variance within the dataset and therfore robustness of the trained network, the chosen frames are at the general point of diastole and systole.
 Most all of the scans taken were of pathological hearts, so finding exact diastole and systole was challenging.
@@ -308,14 +427,16 @@ The background of the mask is always zero. If a cone mask is present, the cone i
 If the ventricle is the only mask present then it will have a value of one.
 TODO(image of mask with cone and vent and mask with only cone)
 As the ultrasound cone is quite simple to identify within the images, we only ended up producing 25 data points with the cone manually segmented.
-\par{}
+\par
 Once a mask was completed it needed to be associated with the correct frame from the correct image.
-The naming convention that we settled on was to simply use the same name as the image with the correct frame number appended to the end of the name.
-\textit{KCL\_GC\_001\_US\_2CH2\_01.nii.gz}
+The naming convention that we settled on was to simply use the same name as the image with the correct frame number appended to the end of the name.\\
+
+\textit{KCL\_GC\_001\_US\_2CH2\_01.nii.gz}\\
+
 The above example refers to the mask associated with the first frame of image KCL\_GC\_001\_US\_2CH2.nii.gz.
 This limits us to two digits to determine the frame so we are limited to frames 0-99.
 Most images are well under 100 frames. Images that are longer usually have a full cardiac cycle within the first 100 frames.
-\par{}
+\par
 In order to train a network on the images, they needed to be a standard resolution.
 Initially this resolution was to be 512 by 512. 512 is a power of two in order to avoid non integer resolutions as the images are downsampled in the unet.
 The raw images in the dataset varied in resolution(TODO exact reses pls) with 512 by 512 being a rough mean.
@@ -323,24 +444,27 @@ We later moved to a resolution of 800 by 800. This change was made based on two 
 We wanted to zero pad the images up to a resolution insead of cropping them or interpolating them to a smaller size.
 Interpolation would give a reproduction of our images at a different resolution  while zero padding would encase the exact original image in zeros.
 Our zero padding scheme attemps to keep the original image in the center of the padding.
-TODO(image of unpadded and padded images)
+%TODO(image of unpadded and padded images)
 While interpolating image data is common practice, the end goal of producing a measuremnt of LVEF in real world units places a higher degree of importance in preserving the pixel spacing and dimension information contained in the image headers.
 As the data generation script took shape, moving data from nifti to numpy array and back again without worrying about pixel spacing was a relief.
 Once the images and masks were a standard resolution the image intensities needed to be scaled from zero to one. This was acheived with scalar division by 255.
-\par{}
+\par
 Now that the data has been standardised, we can construct the datasets for training.
 As some masks contain both ventricle and cone information, they must be processed to produce a seperate ventricle and cone mask.
-At the initial round of training the cone dataset consisted of 25 image and mask pairs and the two chamber dataset consisted of 43 image and mask pairs.
+At the initial round of training the cone dataset consisted of 25 image and mask pairs and the 2CH dataset consisted of 43 image and mask pairs.
 
-\paragraph{training}
+\par
+
+\subsection{training}
 Due to the small amount of data that we were working with along with memory restrictions, on the fly data augmentation was going to be crucial to the performance of the porject.
 The premise was to apply random image transformations to an image and mask pair to generate a "new" peice of data from a base image.
 We decided to use the keras data generator class, which is capapble of perfroming a multitude of rigid image transformations. 
-While some non-rigid transformations could be useful, we needed them to be precise enough to only deform the ventricle as we wanted the cone to remain undeformed.
+While some non-rigid transformations could be useful, and are recomended in the unet paper, we needed them to be precise enough to only deform the ventricle as we wanted the cone to remain undeformed.
 We needed to tread the fine line of augmenting our data in a way that increases the variation within the dataset without going too far.
 Too much augmentation that is too drastic could lead to the network struggling to find any sort of pattern without an immense amount of training.
 Due to machine and time constraints training needed to be as efficient as possible.
-After some trial and error we settled on the folloeing parameters to define our image and mask datagenerator:
+After some trial and error we settled on the following parameters to define our image and mask datagenerator:
+
 \begin{enumerate}
 	\item{rotation range of 45 degrees}
 	\item{width shift range of 10\% of total image width}
@@ -349,31 +473,94 @@ After some trial and error we settled on the folloeing parameters to define our 
 	\item{zoom range of 0.1 EXPLAIN!}
 	\item{fill mode of nearest so most likely zero}
 \end{enumerate}
+
 We apply this same augmentation scheme to both the training and validation data to increase the size and variance of both sets.
 It is customary in machine learning, to take some data that could be used for training, and use it insead to test the trained model.
 Here we would give the trained model an image that it had never seen before and have it predict a mask.
 Comparison between the predicted and true masks gives us a better understanding at the effectivness of the model.
-As the model is literaly optimized to perform on the training data, using this data to validate its performance would not illistrate any ability to perform on real life data.
-\paragraph{Results validation}
+As the model is literaly optimized to perform on the training data, using it to validate the network performance would not illistrate any ability to perform on real life data.
+
+\subsection{Validation}
+A network is only as good as it can be proved to be.
+For a segmentation task
+\subsubsection{K Fold Validation}
 To assess the performance of our model we will both assess the performance with a K fold cross validation scheme and compare the accuracy of the predicted LVEF and LVM.
 K fold cross validation involves a number of steps.
+
 \begin{enumerate}
 	\item{Split the dataset into K equal groups}
 	\item{Select one group for the test set and have the rest be training data}
 	\item{train K models so that every data point gets to be in the test set}
 \end{enumerate}
-\paragraph{training params}
+
+In our case we chose K to be 5.
+This fit well with out final bloodpool dataset size of 100 image mask pairs as it is cleanly divisible by 5.
+
+
+\subsubsection{Generated LVEF and LVM}
+Predicting medicaly relavent metrics from 2D echocardiogram images is an additional method of validation.
+While calculating LVEF and LVM to high precision is left to 3D imaging techniques, that does not make 2D quantitative analysis irrelavent.
+As stated in the introduction, some 2D echos are simply
+
+
+We w
+\subsection{training params}
 We settled into traning parameters early in the project.
 We needed to ensure that we would train long enough to get our validation loss sufficently low, while minimizing training time.
-For
+For the final cross validation training, we chose 1000 epochs.
+We knew that this was more than enough, so after one fold was trained, we noted the point of diminishing returns TODO and chose x epochs for the final run.
+%image of loss over epochs graph
+
+batch\_size
+Batches are groups of images to be trained on each step.
+When we attempted to have a batch size greater than one our machine ran out of memory and the training script crashed.
+This could be due to machine restrictions, but is more likely the large image resolution and size of unet.
+
+steps\_per\_epoch
+The number of steps per epoch determines how batches are trained on per epoch.
+Ideally every image is trained on for every epoch.
+As out batch size was 1, we needed our steps per epoch to be equal to the number of training images, which in our case was 80.
+
 optimizer
+The optimizer is the most important aspect of the network learning.
+This algorithum performs stocastic gradient descent with an adaptive learning rate.
+Insead of performing computationally expensive gradient descent on every single batch, the stocastic aspect randomly selects images to optimize for.
+This ensures that the network is being optimized on a set of images that reflect the variance of the entire dataset.
+The other major aspect to the adam optimizer is the dynamic learnign rate.
+%image of of gradient descent with different learning rates
+If the stochastic gradient descent step tells us in what direction we want to tweak our weights, the learning rate defines how much we change our weights.
+If our learning rate is too high, our steps will be too large and our network will not be able to settle into a configuration that minimizes our loss.
+If our learning rate is too low, it will take too long for our network to reach a loss minimum.
+Adam handles this problem by dynamicly changing the learning rate based on the parameters of the problem.
+If a certain feature is very common, for example the apex of the heart in most scans is usually a source of good signal, then adam will reduce the learning rate for this feature.
+%image of apex
+While for sparser features would require a larger learning rate to ensure the network learns about them even though they are rare.
+An example of a rare feature could be the presence of hypertropic myocardium.
+This means that there is no longer one global learning rate but a learning rate that is associated with different features within the training data.
+The other defning feature of the adam algorithm is the root mean square propogation(RMSprop).
+RMSprop also adapts the per feature learning rates based on the average of recent learning rates.
+This gives adam good robustness on noisey sparse datasets.\cite{adam_opt}
+
 loss
+To track the loss of the network we decided to use binary cross entropy and dice loss.
+Binary cross entropy is. % need more
+Dice loss is very simple. It measures the overlap between the predicted label and the ground truth.
+For the two classes in our segmentation task we use the 2 class dice loss as calculated by eq %TODO equations for both
+\begin{equation}
+\end{equation}
+The dice coefficient ranges from 0-1, with 0 being no overlap and 1 being a perfect match.
+To convert the dice coefficient into dice loss we simply subtract it from 1 to invert the metric so that we can minimise it
+
+To combine the two metrics we simply add them together and minimize the sum as our loss function.
+
 saving
+In order to monitor the progress of our network and save training progress we utilized a number of keras callbacks.
+Callbacks are simply functions that can be called during training.
+We used the CSVlogger, Modelcheckpoint and
 
-
-\paragraph{class organisation}
-\paragraph{validation}
-\paragraph{data generation}
+\subsection{class organisation}
+\subsection{validation}
+\subsection{data generation}
 
 
 %\begin{center}
@@ -382,6 +569,33 @@ saving
 %\includegraphics[width=.3\linewidth]{example-image}\quad\includegraphics[width=.3\linewidth]{example-image-a}\quad\includegraphics[width=.3\linewidth]{example-image-b}
 %\end{center}
 
+\section{Discussion}
+\section{Further Research}
+Our project has for the most part been limited by thee fact that we were doing almost every aspect for the first time.
+If another team or person were to continue exploring deep learning on 2D echocardiogram data, this is where we recommend they spend their efforts.
+
+LTSM/RNN
+When we were manually segmenting the ventricle and myocardium from the echo images, in many cases it was exceedingly difficult to discern where the walls of the heart were.
+We also consulted a practicing cardiologist, who corroborated this saying that in some cases the segmentation can be difficult.
+But what humans  can do that this network cannot, is watch the video to contextualize a certain frame.
+%iamge of progressive frames that show a wall dissapearing
+In order to allow a network accomplish this, an LSTM may be employed.
+LSTMs employ a reccurrent nature where the network would watch the entire echocardiogram video before attempting to segment the individual frames.
+The idea ebing that the network will learn general information about the behavior of the heart through time and use that information to segment individual frames.
+
+Explanation!!
+Before neural networks are put into practice in hospitals, doctors and legislators need to be sure that networks can be trusted.
+One possible solution to this would be to give networks the ability to explain why they make the desicions that they do and how sure they are about their answer.
+A practical extension of this idea for our network could be the seletion of regions within the image that inform its decisions.
+%image of 
+Nifti pipeline standarization
+Signifigant portions of our time was spent creating and managing the dataset.
+If we started the project
+computer recources
+spec around batch size
+architecture
+elastic aug
+\section{Conclusion}
 
 \bibliography{sources}
 \bibliographystyle{IEEEtran}
