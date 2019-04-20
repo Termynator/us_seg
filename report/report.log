@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.23)  19 APR 2019 19:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.23)  19 APR 2019 20:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -286,10 +286,10 @@ LaTeX Warning: Citation `mri_implants' on page 6 undefined on input line 164.
 [6] [7] [8] [9]
 
 LaTeX Warning: Citation `jacc_ef_p_and_c' on page 10 undefined on input line 22
-3.
+7.
 
 
-Overfull \hbox (72.56627pt too wide) detected at line 231
+Overfull \hbox (72.56627pt too wide) detected at line 235
 \OML/cmm/m/it/12 Volumeofdisk \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 pi\OT1/cmr/m/n
 /12 (\OML/cmm/m/it/12 d\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 =\OT1/cmr/m/n/12 2) \O
 MS/cmsy/m/n/12 ^^C \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 d\OT1/cmr/m/n/12 2\OML/cmm
@@ -297,49 +297,50 @@ MS/cmsy/m/n/12 ^^C \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 d\OT1/cmr/m/n/12 2\OML/cmm
 Volumeofheart \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 summationofthedisks
  []
 
+[10]
 
-LaTeX Warning: Citation `ase_quant_update' on page 10 undefined on input line 2
-33.
+LaTeX Warning: Citation `ase_quant_update' on page 11 undefined on input line 2
+37.
 
-[10] [11] [12] [13] [14] [15] [16] [17] [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 402--406
+[11] [12] [13] [14] [15] [16] [17] [18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 404--408
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 407--411
+Underfull \hbox (badness 10000) in paragraph at lines 409--413
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 412--415
+Underfull \hbox (badness 10000) in paragraph at lines 414--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
 
  []
 
 
-Overfull \hbox (1.25798pt too wide) in paragraph at lines 418--430
+Overfull \hbox (1.25798pt too wide) in paragraph at lines 420--432
 \OT1/cmr/m/n/12 gin. Be-hind ev-ery com-pe-tent neu-ral net-work is a metic-u-l
 ously crafted dataset.
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 431--433
+Underfull \hbox (badness 10000) in paragraph at lines 433--435
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
 
  []
 
 [23] [24] [25] [26]
 
-LaTeX Warning: Citation `adam_opt' on page 27 undefined on input line 542.
+LaTeX Warning: Citation `adam_opt' on page 27 undefined on input line 544.
 
 [27] [28] [29] (./report.bbl [30]) [31] (./report.aux)
 
@@ -360,7 +361,7 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on report.pdf (33 pages, 134436 bytes).
+Output written on report.pdf (33 pages, 134545 bytes).
 PDF statistics:
  134 PDF objects out of 1000 (max. 8388607)
  92 compressed objects within 1 object stream
