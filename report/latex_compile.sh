@@ -5,8 +5,8 @@
 name=( "${1%%.*}" .tex)
 pdflatex ${name}.tex
 pdflatex ${name}.tex
-biblatex ${name}.tex 
-biblatex ${name}.tex 
+bibtex ${name}.tex 
+bibtex ${name}.tex 
 pdflatex ${name}.tex 
 pdflatex ${name}.tex
 pdflatex ${name}.tex

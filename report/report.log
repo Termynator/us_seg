@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.23)  19 APR 2019 20:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.29)  21 APR 2019 11:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **report.tex
 (./report.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 5 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
@@ -237,6 +237,7 @@ e
 \openout3 = `report.toc'.
 
  [2]
+[3]
 
 LaTeX Warning: Citation `who_world_health' on page 1 undefined on input line 37
 .
@@ -338,22 +339,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 436--437
 
  []
 
-[23] [24] [25] [26]
+[23] [24] [25]
 
-LaTeX Warning: Citation `adam_opt' on page 27 undefined on input line 544.
+LaTeX Warning: Citation `adam_opt' on page 26 undefined on input line 521.
 
-[27] [28] [29] (./report.bbl [30]) [31] (./report.aux)
+[26] [27] [28] [29] (./report.bbl [30]) [31] (./report.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2741 strings out of 494880
- 39289 string characters out of 6179600
- 99004 words of memory out of 5000000
- 6032 multiletter control sequences out of 15000+600000
+ 2741 strings out of 492982
+ 39289 string characters out of 6134896
+ 103785 words of memory out of 5000000
+ 6275 multiletter control sequences out of 15000+600000
  10280 words of font info for 37 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
+ 1141 hyphenation exceptions out of 8191
  41i,6n,25p,487b,213s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
@@ -361,10 +362,10 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on report.pdf (33 pages, 134545 bytes).
+Output written on report.pdf (34 pages, 134740 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
+ 137 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

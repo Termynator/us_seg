@@ -482,31 +482,8 @@ Here we would give the trained model an image that it had never seen before and 
 Comparison between the predicted and true masks gives us a better understanding at the effectivness of the model.
 As the model is literaly optimized to perform on the training data, using it to validate the network performance would not illistrate any ability to perform on real life data.
 
-\subsection{Validation}
-A network is only as good as it can be proved to be.
-For a segmentation task
-\subsubsection{K Fold Validation}
-To assess the performance of our model we will both assess the performance with a K fold cross validation scheme and compare the accuracy of the predicted LVEF and LVM.
-K fold cross validation involves a number of steps.
 
-\begin{enumerate}
-	\item{Split the dataset into K equal groups}
-	\item{Select one group for the test set and have the rest be training data}
-	\item{train K models so that every data point gets to be in the test set}
-\end{enumerate}
-
-In our case we chose K to be 5.
-This fit well with out final bloodpool dataset size of 100 image mask pairs as it is cleanly divisible by 5.
-
-
-\subsubsection{Generated LVEF and LVM}
-Predicting medicaly relavent metrics from 2D echocardiogram images is an additional method of validation.
-While calculating LVEF and LVM to high precision is left to 3D imaging techniques, that does not make 2D quantitative analysis irrelavent.
-As stated in the introduction, some 2D echos are simply
-
-
-We w
-\subsection{training params}
+\subsubsection{training params}
 We settled into traning parameters early in the project.
 We needed to ensure that we would train long enough to get our validation loss sufficently low, while minimizing training time.
 For the final cross validation training, we chose 1000 epochs.
@@ -560,8 +537,32 @@ In order to monitor the progress of our network and save training progress we ut
 Callbacks are simply functions that can be called during training.
 We used the CSVlogger, Modelcheckpoint and
 
+\subsection{Validation}
+A network is only as good as it can be proved to be.
+For a segmentation task
+\subsubsection{K Fold Validation}
+To assess the performance of our model we will both assess the performance with a K fold cross validation scheme and compare the accuracy of the predicted LVEF and LVM.
+K fold cross validation involves a number of steps.
+
+\begin{enumerate}
+	\item{Split the dataset into K equal groups}
+	\item{Select one group for the test set and have the rest be training data}
+	\item{train K models so that every data point gets to be in the test set}
+\end{enumerate}
+
+In our case we chose K to be 5.
+This fit well with out final bloodpool dataset size of 100 image mask pairs as it is cleanly divisible by 5.
+
+
+\subsubsection{Generated LVEF and LVM}
+Predicting medicaly relavent metrics from 2D echocardiogram images is an additional method of validation.
+While calculating LVEF and LVM to high precision is left to 3D imaging techniques, that does not make 2D quantitative analysis irrelavent.
+As stated in the introduction, some 2D echos are simply
+
+
+We w
+
 \subsection{class organisation}
-\subsection{validation}
 \subsection{data generation}
 
 
@@ -571,6 +572,7 @@ We used the CSVlogger, Modelcheckpoint and
 %\includegraphics[width=.3\linewidth]{example-image}\quad\includegraphics[width=.3\linewidth]{example-image-a}\quad\includegraphics[width=.3\linewidth]{example-image-b}
 %\end{center}
 
+\section{Results}
 \section{Discussion}
 \section{Further Research}
 Our project has for the most part been limited by thee fact that we were doing almost every aspect for the first time.
@@ -593,6 +595,8 @@ A practical extension of this idea for our network could be the seletion of regi
 Nifti pipeline standarization
 Signifigant portions of our time was spent creating and managing the dataset.
 If we started the project
+
+longitudinal strai
 computer recources
 spec around batch size
 architecture
@@ -600,6 +604,6 @@ elastic aug
 \section{Conclusion}
 
 \bibliography{sources}
-\bibliographystyle{IEEEtran}
-
+%\bibliographystyle{IEEEtran}
+\bibliographystyle{plain}
 \end{document}

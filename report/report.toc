@@ -19,13 +19,13 @@
 \contentsline {subsection}{\numberline {4.3}Dataset}{19}
 \contentsline {subsubsection}{\numberline {4.3.1}dataset preprocessing}{21}
 \contentsline {subsection}{\numberline {4.4}training}{24}
-\contentsline {subsection}{\numberline {4.5}Validation}{25}
-\contentsline {subsubsection}{\numberline {4.5.1}K Fold Validation}{26}
-\contentsline {subsubsection}{\numberline {4.5.2}Generated LVEF and LVM}{26}
-\contentsline {subsection}{\numberline {4.6}training params}{26}
-\contentsline {subsection}{\numberline {4.7}class organisation}{29}
-\contentsline {subsection}{\numberline {4.8}validation}{29}
-\contentsline {subsection}{\numberline {4.9}data generation}{29}
-\contentsline {section}{\numberline {5}Discussion}{29}
-\contentsline {section}{\numberline {6}Further Research}{29}
-\contentsline {section}{\numberline {7}Conclusion}{30}
+\contentsline {subsubsection}{\numberline {4.4.1}training params}{25}
+\contentsline {subsection}{\numberline {4.5}Validation}{28}
+\contentsline {subsubsection}{\numberline {4.5.1}K Fold Validation}{28}
+\contentsline {subsubsection}{\numberline {4.5.2}Generated LVEF and LVM}{29}
+\contentsline {subsection}{\numberline {4.6}class organisation}{29}
+\contentsline {subsection}{\numberline {4.7}data generation}{29}
+\contentsline {section}{\numberline {5}Results}{29}
+\contentsline {section}{\numberline {6}Discussion}{29}
+\contentsline {section}{\numberline {7}Further Research}{29}
+\contentsline {section}{\numberline {8}Conclusion}{31}
