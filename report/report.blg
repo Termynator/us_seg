@@ -1,52 +1,229 @@
 This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: report.aux
-Case mismatch error between cite keys EF_soa and ef_soa
----line 14 of file report.aux
- : \citation{EF_soa
- :                 }
-I'm skipping whatever remains of this command
-The style file: ieeetr.bst
-Database file #1: sources.bib
-You've used 3 entries,
-            1876 wiz_defined-function locations,
-            502 strings with 4034 characters,
-and the built_in function-call counts, 1059 in all, are:
-= -- 112
-> -- 26
-< -- 0
-+ -- 10
-- -- 7
-* -- 74
-:= -- 144
-add.period$ -- 3
-call.type$ -- 3
-change.case$ -- 3
-chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 54
-empty$ -- 95
-format.name$ -- 7
-if$ -- 266
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: references.bib
+Warning--I didn't find a database entry for "cardiac_chamber_quant_update"
+Warning--I didn't find a database entry for "jacc_ef_p_and_c"
+Warning--I didn't find a database entry for "ase_quant_update"
+Warning--I didn't find a database entry for "adam_opt"
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Name 1 in "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" has a comma at the end for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, Michelle Bierig, MPH, RDCS, FASE, Richard B. Devereux, MD, Frank A. Flachskampf, MD, Elyse Foster, MD, Patricia A. Pellikka, MD, Michael H. Picard, MD, Mary J. Roman, MD, James Seward, MD, Jack S. Shanewise, MD, FASE, Scott D. Solomon, MD, Kirk T. Spencer, MD, FASE, Martin St John Sutton, MD, FASE, and William J. Stewart, MD" for entry ase_chamber_quant
+while executing---line 2403 of file IEEEtran.bst
+Name 1 in "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" has a comma at the end for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 2 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 2 of "Roberto M. Lang, MD, FASE, FESC, Luigi P. Badano, MD, PhD, FESC, Victor Mor-Avi, PhD, FASE, Jonathan Afilalo, MD, MSc, Anderson Armstrong, MD, MSc, Laura Ernande, MD, PhD, Frank A. Flachskampf, MD, FESC, Elyse Foster, MD, FASE, Steven A. Goldstein, MD, Tatiana Kuznetsova, MD, PhD, Patrizio Lancellotti, MD, PhD, FESC, Denisa Muraru, MD, PhD, Michael H. Picard, MD, FASE, Ernst R. Rietzschel, MD, PhD, Lawrence Rudski, MD, FASE, Kirk T. Spencer,MD, FASE, Wendy Tsang, MD, and Jens-Uwe Voigt, MD, PhD, FESC" for entry ase_chamber_quant_update
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Duc H Do, MD; Noel G. Boyle, MB, BCH, FACC" for entry mri_implants
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Duc H Do, MD; Noel G. Boyle, MB, BCH, FACC" for entry mri_implants
+while executing---line 2403 of file IEEEtran.bst
+
+Done.
+You've used 7 entries,
+            4087 wiz_defined-function locations,
+            874 strings with 9877 characters,
+and the built_in function-call counts, 5489 in all, are:
+= -- 474
+> -- 97
+< -- 53
++ -- 60
+- -- 13
+* -- 276
+:= -- 885
+add.period$ -- 14
+call.type$ -- 7
+change.case$ -- 7
+chr.to.int$ -- 123
+cite$ -- 7
+duplicate$ -- 377
+empty$ -- 387
+format.name$ -- 17
+if$ -- 1252
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 3
-newline$ -- 12
-num.names$ -- 3
-pop$ -- 4
+int.to.str$ -- 7
+missing$ -- 57
+newline$ -- 52
+num.names$ -- 7
+pop$ -- 107
 preamble$ -- 1
 purify$ -- 0
-quote$ -- 0
-skip$ -- 49
+quote$ -- 2
+skip$ -- 427
 stack$ -- 0
-substring$ -- 100
-swap$ -- 31
-text.length$ -- 0
+substring$ -- 294
+swap$ -- 329
+text.length$ -- 12
 text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
+top$ -- 5
+type$ -- 7
 warning$ -- 0
-while$ -- 9
-width$ -- 4
-write$ -- 33
-(There was 1 error message)
+while$ -- 22
+width$ -- 8
+write$ -- 103
+(There were 84 error messages)

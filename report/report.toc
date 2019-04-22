@@ -1,5 +1,5 @@
 \contentsline {section}{\numberline {1}Abstract}{1}
-\contentsline {section}{\numberline {2}Ackowledgements}{1}
+\contentsline {section}{\numberline {2}Acknowledgements}{1}
 \contentsline {section}{\numberline {3}Intro}{1}
 \contentsline {subsection}{\numberline {3.1}Motivation}{1}
 \contentsline {subsection}{\numberline {3.2}Metrics}{2}
@@ -12,9 +12,9 @@
 \contentsline {subsection}{\numberline {3.9}Automatic Segmentation}{11}
 \contentsline {subsection}{\numberline {3.10}Deep Learning}{11}
 \contentsline {subsection}{\numberline {3.11}CNN}{14}
-\contentsline {subsection}{\numberline {3.12}UNET}{15}
+\contentsline {subsection}{\numberline {3.12}Unet}{15}
 \contentsline {section}{\numberline {4}Method}{16}
-\contentsline {subsection}{\numberline {4.1}Programming Enviornment}{16}
+\contentsline {subsection}{\numberline {4.1}Programming Environment}{16}
 \contentsline {subsection}{\numberline {4.2}python modules}{17}
 \contentsline {subsection}{\numberline {4.3}Dataset}{19}
 \contentsline {subsubsection}{\numberline {4.3.1}dataset preprocessing}{21}
@@ -25,7 +25,7 @@
 \contentsline {subsubsection}{\numberline {4.5.2}Generated LVEF and LVM}{29}
 \contentsline {subsection}{\numberline {4.6}class organisation}{29}
 \contentsline {subsection}{\numberline {4.7}data generation}{29}
-\contentsline {section}{\numberline {5}Results}{29}
-\contentsline {section}{\numberline {6}Discussion}{29}
-\contentsline {section}{\numberline {7}Further Research}{29}
-\contentsline {section}{\numberline {8}Conclusion}{31}
+\contentsline {section}{\numberline {5}Results}{30}
+\contentsline {section}{\numberline {6}Discussion}{30}
+\contentsline {section}{\numberline {7}Further Research}{31}
+\contentsline {section}{\numberline {8}Conclusion}{32}

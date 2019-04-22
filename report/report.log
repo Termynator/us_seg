@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.29)  21 APR 2019 11:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.29)  22 APR 2019 10:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -238,59 +238,29 @@ e
 
  [2]
 [3]
+Overfull \hbox (17.3291pt too wide) in paragraph at lines 39--49
+\OT1/cmr/m/n/12 dis-ease is tan-ta-mount to treat-ment and man-age-ment of symp
+-toms.Quantification
+ []
 
-LaTeX Warning: Citation `who_world_health' on page 1 undefined on input line 37
-.
+[1] [2] [3]
 
+LaTeX Warning: Citation `cardiac_chamber_quant_update' on page 4 undefined on i
+nput line 121.
 
-LaTeX Warning: Citation `ase_chamber_quant' on page 1 undefined on input line 3
+[4]
+Overfull \hbox (1.54178pt too wide) in paragraph at lines 126--128
+[]\OT1/cmr/m/n/12 Hypertrophic car-diomy-opa-thy (HCM), as in-di-cated via el-e
+-vated LVM(how
+ []
+
+[5] [6] [7] [8] [9]
+
+LaTeX Warning: Citation `jacc_ef_p_and_c' on page 10 undefined on input line 22
 9.
 
 
-Overfull \hbox (5.25284pt too wide) in paragraph at lines 37--47
-\OT1/cmr/m/n/12 dis-ease is tan-ta-mount to treat-ment and man-ag-ment of sym-t
-oms.Quantification
- []
-
-[1]
-
-LaTeX Warning: Citation `ase_chamber_quant_update' on page 2 undefined on input
- line 58.
-
-[2] [3]
-
-LaTeX Warning: Citation `cardiac_chamber_quant_update' on page 4 undefined on i
-nput line 119.
-
-[4]
-Overfull \hbox (19.16948pt too wide) in paragraph at lines 127--128
-[]\OT1/cmr/m/n/12 Dilated car-diomy-opa-thy(DCM) as in-di-cated by lower than n
-or-mal LVM(again
- []
-
-
-Overfull \hbox (0.68344pt too wide) in paragraph at lines 127--128
-\OT1/cmr/m/n/12 what is nor-mal) oc-curs when the left ven-tri-cle my-ocardium 
-thins and stretches
- []
-
-
-Overfull \hbox (6.44589pt too wide) in paragraph at lines 136--137
-\OT1/cmr/m/n/12 o-nance imag-ing(MRI), x-ray com-puted to-mog-ra-phy(CT), and u
-l-tra-sound(US). 
- []
-
-[5]
-
-LaTeX Warning: Citation `mri_implants' on page 6 undefined on input line 164.
-
-[6] [7] [8] [9]
-
-LaTeX Warning: Citation `jacc_ef_p_and_c' on page 10 undefined on input line 22
-7.
-
-
-Overfull \hbox (72.56627pt too wide) detected at line 235
+Overfull \hbox (72.56627pt too wide) detected at line 237
 \OML/cmm/m/it/12 Volumeofdisk \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 pi\OT1/cmr/m/n
 /12 (\OML/cmm/m/it/12 d\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 =\OT1/cmr/m/n/12 2) \O
 MS/cmsy/m/n/12 ^^C \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 d\OT1/cmr/m/n/12 2\OML/cmm
@@ -301,71 +271,110 @@ Volumeofheart \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 summationofthedisks
 [10]
 
 LaTeX Warning: Citation `ase_quant_update' on page 11 undefined on input line 2
-37.
+39.
 
 [11] [12] [13] [14] [15] [16] [17] [18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 404--408
+Underfull \hbox (badness 10000) in paragraph at lines 406--410
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 409--413
+Underfull \hbox (badness 10000) in paragraph at lines 411--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 414--417
+Underfull \hbox (badness 10000) in paragraph at lines 416--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--419
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 
  []
 
 
-Overfull \hbox (1.25798pt too wide) in paragraph at lines 420--432
+Overfull \hbox (1.25798pt too wide) in paragraph at lines 422--434
 \OT1/cmr/m/n/12 gin. Be-hind ev-ery com-pe-tent neu-ral net-work is a metic-u-l
 ously crafted dataset.
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 433--435
+Underfull \hbox (badness 10000) in paragraph at lines 435--437
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
 
  []
 
 [23] [24] [25]
 
-LaTeX Warning: Citation `adam_opt' on page 26 undefined on input line 521.
+LaTeX Warning: Citation `adam_opt' on page 26 undefined on input line 523.
 
-[26] [27] [28] [29] (./report.bbl [30]) [31] (./report.aux)
+[26] [27] [28] [29] [30] [31] (./report.bbl
+! Missing $ inserted.
+<inserted text> 
+                $
+l.28 ...ications/world_health_statistics/2018/en/}
+                                                  
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.30 
+     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.30 
+     
+? 
+
+Underfull \hbox (badness 2922) in paragraph at lines 26--30
+[]\OT1/cmr/m/n/12 W. H. Org, ``World health statis-tics 2018,''
+ []
+
+
+Underfull \hbox (badness 4205) in paragraph at lines 26--30
+\OT1/cmr/m/n/12 WHO, Tech. Rep., 2018. [On-line]. Avail-able:
+ []
+
+! Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.30 
+     
+? 
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+[32]) [33] (./report.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2741 strings out of 492982
- 39289 string characters out of 6134896
- 103785 words of memory out of 5000000
- 6275 multiletter control sequences out of 15000+600000
+ 2749 strings out of 492982
+ 39424 string characters out of 6134896
+ 103797 words of memory out of 5000000
+ 6283 multiletter control sequences out of 15000+600000
  10280 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,25p,487b,213s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,6n,25p,487b,221s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on report.pdf (34 pages, 134740 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti12.pfb>
+Output written on report.pdf (36 pages, 146158 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
+ 148 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
