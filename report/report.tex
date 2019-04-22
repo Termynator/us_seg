@@ -246,10 +246,15 @@ We also struggled with endocardial dropout as highlighted in the guidelines.
 
 \subsection{Automatic Segmentation}
 While most every medical professional can take heart rate and blood pressure by hand, these tasks are now relagated to machines.\cite{pulse oxymmetry bp cuffs}
-In this case we find that manual blood pressure and heart rate are more accurate when taken my hand, however this may not be the case for echocardiogram analysis.
-Without understating the importance of these metrics, their automatic collection saves frees up time for pressing tasks.
-While echocardiograms are analysed by hand today, the automation of this process could free up cardiologist's time for higher level duties.
-Apart from saving time, automatic segmentation would reduce interoperator variance.
+In this case we find that it is best practice to take manual blood pressure and heart rate by hand because of the patient contact\cite{obs_guidelines}.
+Humans will pick up on variation within the heart rate that could be more insightful than the digital readout of automatic systems.
+We also don't patients to feel as if their care has been relagated to machines.
+As manual segmentation is prone to interoperator variance\cite{jacc_ef_p_and_c} and time spent manually segmenting images is time spent away from patients, an automatic procedure would be beneficial.
+While 2D echocardiograms are useful, the dialog with patients to determine how they view their physical abilities is just as valuable to determining wether more scans should be taken.
+Qualitative judgement of echocardiograms would be expected if the cardiologist is given ample information to make a decision.
+For example, if a patient has an LVEF that looks to be normal and they report no issues associated with reduced EF or heart function, the cardiologist would not need to manually calculate LVEF.
+LVEF is well suited to automation because the metric is time consuming and variable compared to automatic methods and the metric is useful but almost never the sole reason to make a diagnosis or prognosis descicion, it is an indicator.
+
 While cardiologists are experts at diagnosing what is wrong with a patient's heart, they sythesise an array of information that is comprised of much more than just LVEM and LVM.
 Many are able to make their diagnoses simply by looking at the echoes and making a qualitative judgement.
 When qualitative measurements are made
@@ -615,7 +620,6 @@ have example of plotting vent size though time
 Our project has for the most part been limited by thee fact that we were doing almost every aspect for the first time.
 If another team or person were to continue exploring deep learning on 2D echocardiogram data, this is where we recommend they spend their efforts.
 
-LTSM/RNN
 When we were manually segmenting the ventricle and myocardium from the echo images, in many cases it was exceedingly difficult to discern where the walls of the heart were.
 We also consulted a practising cardiologist, who corroborated this saying that in some cases the segmentation can be difficult.
 But what humans  can do that this network cannot, is watch the video to contextualize a certain frame.
@@ -624,15 +628,15 @@ In order to allow a network accomplish this, an LSTM may be employed.
 LTSM's employ a recurrent nature where the network would watch the entire echocardiogram video before attempting to segment the individual frames.
 The idea being that the network will learn general information about the behaviour of the heart through time and use that information to segment individual frames.
 
-Explanation!!
 Before neural networks are put into practice in hospitals, doctors and legislators need to be sure that networks can be trusted.
 One possible solution to this would be to give networks the ability to explain why they make the decisions that they do and how sure they are about their answer.
 A practical extension of this idea for our network could be the deletion of regions within the image that inform its decisions.
 There is research being done...
+We would also need to compare the performance of these networks to humans.
+We make several claims that this network will reduce interoperator variance, this makes sense as the nature of learning the dataset averages the biases that went into making it.
+Perhaps we need to involve a larger group of people in the manual segmentation to increase the varince within the segmentations and allow the network to learn how more people segment echoes.
 %image of 
-Nifti pipeline standardization
-Significant portions of our time was spent creating and managing the dataset.
-If we started the project with a pipeline that 
+
 
 longitudinal strain
 computer resources
