@@ -10,22 +10,23 @@
 \contentsline {subsection}{\numberline {3.7}Echocardiogram}{9}
 \contentsline {subsection}{\numberline {3.8}Manual Segmentation}{9}
 \contentsline {subsection}{\numberline {3.9}Automatic Segmentation}{11}
-\contentsline {subsection}{\numberline {3.10}Deep Learning}{11}
-\contentsline {subsection}{\numberline {3.11}CNN}{14}
-\contentsline {subsection}{\numberline {3.12}Unet}{15}
-\contentsline {section}{\numberline {4}Method}{16}
-\contentsline {subsection}{\numberline {4.1}Programming Environment}{16}
-\contentsline {subsection}{\numberline {4.2}python modules}{17}
-\contentsline {subsection}{\numberline {4.3}Dataset}{19}
-\contentsline {subsubsection}{\numberline {4.3.1}dataset preprocessing}{21}
-\contentsline {subsection}{\numberline {4.4}training}{24}
-\contentsline {subsubsection}{\numberline {4.4.1}training params}{25}
-\contentsline {subsection}{\numberline {4.5}Validation}{28}
-\contentsline {subsubsection}{\numberline {4.5.1}K Fold Validation}{28}
-\contentsline {subsubsection}{\numberline {4.5.2}Generated LVEF and LVM}{29}
-\contentsline {subsection}{\numberline {4.6}class organisation}{29}
-\contentsline {subsection}{\numberline {4.7}data generation}{29}
-\contentsline {section}{\numberline {5}Results}{30}
-\contentsline {section}{\numberline {6}Discussion}{30}
-\contentsline {section}{\numberline {7}Further Research}{31}
-\contentsline {section}{\numberline {8}Conclusion}{32}
+\contentsline {subsection}{\numberline {3.10}Deep Learning}{13}
+\contentsline {subsection}{\numberline {3.11}CNN}{15}
+\contentsline {subsection}{\numberline {3.12}Unet}{16}
+\contentsline {section}{\numberline {4}Method}{17}
+\contentsline {subsection}{\numberline {4.1}Programming Environment}{17}
+\contentsline {subsection}{\numberline {4.2}python modules}{18}
+\contentsline {subsection}{\numberline {4.3}Dataset}{21}
+\contentsline {subsubsection}{\numberline {4.3.1}dataset preprocessing}{22}
+\contentsline {subsection}{\numberline {4.4}training}{26}
+\contentsline {subsubsection}{\numberline {4.4.1}training params}{27}
+\contentsline {subsection}{\numberline {4.5}class organisation}{30}
+\contentsline {subsection}{\numberline {4.6}data generation}{30}
+\contentsline {subsection}{\numberline {4.7}Validation}{31}
+\contentsline {subsubsection}{\numberline {4.7.1}K Fold Validation}{31}
+\contentsline {subsubsection}{\numberline {4.7.2}Generated LVEF and LVM}{31}
+\contentsline {subsubsection}{\numberline {4.7.3}ROC Curve}{32}
+\contentsline {section}{\numberline {5}Results}{32}
+\contentsline {section}{\numberline {6}Discussion}{33}
+\contentsline {section}{\numberline {7}Further Research}{33}
+\contentsline {section}{\numberline {8}Conclusion}{35}

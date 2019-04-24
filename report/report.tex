@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{cite}
 \usepackage{setspace}
+\usepackage{url}
 
 \begin{document}
 
@@ -316,7 +317,7 @@ A known mask is applied in order to produce a specific output. In deep convoluti
 The nature of optimizing the network to complete segmentations means that the filters within the unet will be optimized to better select and highlight the features within the image that are relevant to the segmentation task at hand.
 For example, the network trained to segment the ultrasound cone from out images will most likely have filters that tend to identify the boundary between the background and ultrasound data,
 while the network trained to segment ventricles should be looking to identify the relatively dark blood pool and bright myocardium.
-TODO(image)
+%TODO(image)
 
 \subsection{Unet}
 The Unet architecture is the standard approach for segmenting both 2D and 3D biomedical imaging data.
@@ -324,15 +325,21 @@ It is strongly reliant on image augmentation to increase the size and variance o
 The signature architecture is comprised of a downsampling pathway followed by upsampling to produce a mask that is the same dimension as the input image.
 As the input image is convolved and downsampled, spacial information is converted into feature information.
 What constitutes as feature information would not make much sense anywhere but within the workings of the neural network.
-The information that is distilled as the image progresses through the downsampling phase is directly related to the overall purpose of the network. The feature information in our case will be vital to the network to generate predicted masks for a given image.
+The information that is distilled as the image progresses through the downsampling phase is directly related to the overall purpose of the network. 
+The feature information in our case will be vital to the network to generate predicted masks for a given image.
 
-Skip connections
-upsampling
-max pooling
+The subsequent expansion after the initial distilation of information gives the unet its "U" shape.
+
+During the expansion phase, images from the contracting end are combined with the upsampled image.
+The network is "reminded" what the original image looks like with these connections.
+
+The downsampling of the input image also allows us to use one filter size.
+Without downsampling we may need to use many filters of different sizes to capture differently sized features.
+
+%image illistrating filter size in comparison to say apex of heart in image of full res
+The structure of the unet from the orginal paper can be see in figure x
 %read the unet paper and fill this section out this is the core of the project
 
-Also features that are too large to be encompassed by the filters at the original image resolution may be able to be encompassed after sufficient downsampling.
-%image illistrating filter size in comparison to say apex of heart in image of full res
 
 \section{Method}
 \subsection{Programming Environment}
@@ -537,7 +544,7 @@ An example of a rare feature could be the presence of hypertrophic myocardium.
 This means that there is no longer one global learning rate but a learning rate that is associated with different features within the training data.
 The other defining feature of the adam algorithm is the root mean square propagation(RMSprop).
 RMSprop also adapts the per feature learning rates based on the average of recent learning rates.
-This gives adam good robustness on noisey sparse datasets.\cite{adam_opt}
+This gives adam good robustness on noisey sparse datasets\cite{adam_opt}.
 
 loss
 To track the loss of the network we decided to use binary cross entropy(BCE) and dice loss.
@@ -557,6 +564,27 @@ Callbacks are simply functions that can be called during training.
 We used the CSVLogger, ModelCheckpoint and LearningRateScheduler.
 The CSVLogger is run after every epoch and saves developer defined metrics the epoch number, training and validation BCE dice loss, and training and validation dice loss.
 ModelCheckpoint saves the models
+
+\subsection{class organisation}
+Once we completed our first successful cone segmentations within google colab, it was clear that we needed to move to a more object oriented approach.
+We decided to  store relevant functions for data preprocessing within a module. 
+We wanted to instantiate a unet object from a predefined parameters object that could then train, make predictions, and load previously trained models.
+%class org diagram
+
+\subsection{data generation}
+After constructing the cone and 2CH datasets, we saw a need to streamline the process. 
+We were spending a considerable amount of time entering filenames and clicking on images to open in itk-snap for the segmentation.
+We then decided to write a script that would iterate over every nifti file in a given directory and:
+\begin{enumerate}
+	\item{open the nifti in itk-snap for the user to view the image}
+	\item{prom the user to input which frames would be segmented}
+	\item{give the image to a partially trained network}
+	\item{post process the generated mask and convert it into nifti file}
+	\item{open the image with the mask in itk-snap for user refinement}
+\end{enumerate}
+As the names of the masks were automatically generated based on the user inputted frame and original image name the user no longer had to type in the name of the masks.
+We also defined the directory where the masks and images were to saved within the script so the user did not have to specify that within itk-snap either.
+This script proved challenging due to the movement of image data between np and nifti but the overall time savings outweighed the development time.
 
 
 \subsection{Validation}
@@ -581,28 +609,37 @@ While calculating LVEF and LVM to high precision is left to 3D imaging technique
 The ease of acquiring and working with 2D echoes make them perfect for early detection of abnormalities.
 We w
 
-\subsection{class organisation}
-Once we completed our first successful cone segmentations within google colab, it was clear that we needed to move to a more object oriented approach.
-We decided to  store relevant functions for data preprocessing within a module. 
-We wanted to instantiate a unet object from a predefined parameters object that could then train, make predictions, and load previously trained models.
-%class org diagram
-
-\subsection{data generation}
-After constructing the cone and 2CH datasets, we saw a need to streamline the process. 
-We were spending a considerable amount of time entering filenames and clicking on images to open in itk-snap for the segmentation.
-We then decided to write a script that would iterate over every nifti file in a given directory and:
-\begin{enumerate}
-	\item{open the nifti in itk-snap for the user to view the image}
-	\item{prom the user to input which frames would be segmented}
-	\item{give the image to a partially trained network}
-	\item{post process the generated mask and convert it into nifti file}
-	\item{open the image with the mask in itk-snap for user refinement}
-\end{enumerate}
-As the names of the masks were automatically generated based on the user inputted frame and original image name the user no longer had to type in the name of the masks.
-We also defined the directory where the masks and images were to saved within the script so the user did not have to specify that within itk-snap either.
-This script proved challenging due to the movement of image data between np and nifti but the overall time savings outweighed the development time.
+\subsubsection{ROC Curve}
+As the network returns a probability map of the ventricle and not a binary mask, we must threshold the masks before we compare them to ground truth.
+In order to asess the best threshold value we will plot the networks true positive rate over its false positive rate across a range of thresholds.
 
 \section{Results}
+% 5 fold dice loss per fold and avg
+To assess the performance of our network under the 5 fold cross validation scheme, we tested every image in each fold's test set to get an average dice.
+Our 5 fold cross validation scheme generated the following metrics
+
+\begin{tabular}{ l | c | r }
+	dice loss & fold
+  \hline			
+  1 & 2 & 3 \\
+  4 & 5 & 6 \\
+  7 & 8 & 9 \\
+  \hline  
+\end{tabular}
+
+%training hist for one fold
+The training history for one of our folds is as follows.
+
+%ROC curve for one model
+To test different mask postprocessing thresholds we performed an ROC analysis on one image.
+
+% comparison of LVEF
+
+% LV vol through time
+The reason LVEF only requires the segmentation of two frames is because of the cost of making those segmentations.
+As we have a network that can segment every frame, we can plot the volume of the LV through time.
+This is a result that would have been arduous to perform without our automatic methods.
+
 %\begin{center}
 %\includegraphics[width=.3\linewidth]{example-image}\quad\includegraphics[width=.3\linewidth]{example-image-a}\quad\includegraphics[width=.3\linewidth]{example-image-b}
 %\\[\baselineskip]% adds vertical line spacing
@@ -610,11 +647,13 @@ This script proved challenging due to the movement of image data between np and 
 %\end{center}
 
 \section{Discussion}
-How did the network do
-what could it do better
-what needs to be done before this can see implementation
-we could get more metrics easier using auto seg
-have example of plotting vent size though time
+%How did the method do
+Overall we are quite pleased with our network's performance on segmenting the left ventricle.
+
+%what could it do better
+%what needs to be done before this can see implementation
+%we could get more metrics easier using auto seg
+%have example of plotting vent size though time
 
 \section{Further Research}
 Our project has for the most part been limited by thee fact that we were doing almost every aspect for the first time.
@@ -623,7 +662,7 @@ If another team or person were to continue exploring deep learning on 2D echocar
 When we were manually segmenting the ventricle and myocardium from the echo images, in many cases it was exceedingly difficult to discern where the walls of the heart were.
 We also consulted a practising cardiologist, who corroborated this saying that in some cases the segmentation can be difficult.
 But what humans  can do that this network cannot, is watch the video to contextualize a certain frame.
-%iamge of progressive frames that show a wall dissapearing
+%image of progressive frames that show a wall dissapearing
 In order to allow a network accomplish this, an LSTM may be employed.
 LTSM's employ a recurrent nature where the network would watch the entire echocardiogram video before attempting to segment the individual frames.
 The idea being that the network will learn general information about the behaviour of the heart through time and use that information to segment individual frames.

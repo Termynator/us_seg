@@ -60,7 +60,7 @@ def crop_image(image,og_size,cx,cy,desired_size):
   crop = image[x1_: x2_, y1_: y2_]
   return crop
 
-def load_nii_image(image_path,frames,pad = True,dim = [800,800]):
+def load_nii_image(image_path,frames=[],pad = True,dim = [800,800]):
 #loads nii to np and can zero pad to dim
 #returns padded nps from specific frames
     print("Analysing: " + image_path)
@@ -68,6 +68,8 @@ def load_nii_image(image_path,frames,pad = True,dim = [800,800]):
     head = image_nb.header
     image_data = image_nb.get_fdata()
     [x,y,z,t] = image_data.shape
+    if(frames == []):
+        frames = np.arange(1,t+1)
     cx,cy = int(x/2),int(y/2)
     image_data_padded = pad_image(image_data,cx,cy,[dim[0],dim[1]])
     image_frames = np.empty([0,dim[0],dim[1],1])

@@ -59,16 +59,27 @@ class Unet():
             print("loaded model from weights")
 
         #train data augmentation with keras image generator
-        im_data_gen_args = self.params.data_gen_args
-        mk_data_gen_args = self.params.data_gen_args
+        data_gen_args = self.params.data_gen_args
+        data_val_args = self.params.data_val_args
         
-        image_datagen = ImageDataGenerator(**im_data_gen_args)
-        masks_datagen = ImageDataGenerator(**mk_data_gen_args)
+        image_datagen_trn = ImageDataGenerator(**data_gen_args)
+        masks_datagen_trn = ImageDataGenerator(**data_gen_args)
+        image_datagen_val = ImageDataGenerator(**data_val_args)
+        masks_datagen_val = ImageDataGenerator(**data_val_args)
         
-        image_generator_trn = image_datagen.flow(image_trn_ds,seed=seed_trn,batch_size=batch_size)
-        masks_generator_trn = masks_datagen.flow(masks_trn_ds,seed=seed_trn,batch_size=batch_size)
-        image_generator_val = image_datagen.flow(image_val_ds,seed=seed_val,batch_size=batch_size)
-        masks_generator_val = masks_datagen.flow(masks_val_ds,seed=seed_val,batch_size=batch_size)
+        # fit to data for standardization
+        # dont fit to masks
+        #image_datagen_trn.fit(image_trn_ds,augment=True,seed=seed_trn)
+        #masks_datagen_trn.fit(masks_trn_ds,augment=True,seed=seed_trn)
+        #image_datagen_val.fit(image_val_ds,augment=True,seed=seed_val)
+        #masks_datagen_val.fit(masks_val_ds,augment=True,seed=seed_val)
+        
+        aug_dir = "/home/zeke/Programming/cnn/us_seg/data/aug_data/"
+
+        image_generator_trn = image_datagen_trn.flow(image_trn_ds,seed=seed_trn,batch_size=batch_size)#,save_to_dir=aug_dir + "train/",save_prefix = "im")
+        masks_generator_trn = masks_datagen_trn.flow(masks_trn_ds,seed=seed_trn,batch_size=batch_size)#,save_to_dir=aug_dir + "train/",save_prefix = "mk")
+        image_generator_val = image_datagen_val.flow(image_val_ds,seed=seed_val,batch_size=batch_size)#,save_to_dir=aug_dir + "val/",save_prefix = "im")
+        masks_generator_val = masks_datagen_val.flow(masks_val_ds,seed=seed_val,batch_size=batch_size)#,save_to_dir=aug_dir + "val/",save_prefix = "mk")
 
         train_generator = zip(image_generator_trn, masks_generator_trn)
         valid_generator = zip(image_generator_val, masks_generator_val)
@@ -83,7 +94,8 @@ class Unet():
                             steps_per_epoch=steps_per_epoch,
                             epochs=num_epochs,
                             validation_data = valid_generator,
-                            validation_steps = 5,
+                            #validation_data = (image_val_ds,masks_val_ds),
+                            validation_steps = 20,
                             callbacks=self.params.callbacks)
         
 
@@ -92,7 +104,7 @@ class Unet():
 #     def k_fold_cv():
 #         predictions = model.predict_generator(self.validation_gen)
 #
-    def make_prediction(self,image):
+    def make_prediction(self,image,thresh = 0.5):
         #takes image or images and generates predicted masks
         model = self.get_Unet()
         print('defined ' + self.params.experiment_name + ' model')
@@ -103,7 +115,7 @@ class Unet():
         for i in range(image.shape[0]):
             print("Segging Image: " + str(i+1))
             pred_msk = model.predict(image[i:i+1,:,:,:])
-            pred_msk = data.thresh_mask(pred_msk,thresh = 0.5)
+            pred_msk = data.thresh_mask(pred_msk,thresh = thresh)
 #            pred_msk = data.get_largest_connected_comp(pred_msk)
             prediction[i,:,:,:] = pred_msk
         return prediction
@@ -116,6 +128,18 @@ def dice_coeff(y_true, y_pred):
   intersection = K.sum(K.abs(y_true_f * y_pred_f))#,axis=-1
   return (2. * intersection + smooth) / (K.sum(K.square(y_true_f),-1) + K.sum(K.square(y_pred_f),-1) + smooth)
   
+def dice_coeff_np(im1, im2):
+    im1 = np.asarray(im1).astype(np.bool)
+    im2 = np.asarray(im2).astype(np.bool)
+
+    if im1.shape != im2.shape:
+        raise ValueError("Shape mismatch: im1 and im2 must have the same shape.")
+
+    # Compute Dice coefficient
+    intersection = np.logical_and(im1, im2)
+
+    return 2. * intersection.sum() / (im1.sum() + im2.sum())
+
 def dice_loss(y_true, y_pred):
   loss = 1 - dice_coeff(y_true, y_pred)
   return loss
