@@ -21,18 +21,16 @@
 
 \section{Abstract}
 This report outlines our investigation into the performance of deep learning methods on semantic segmentation of the left ventricle blood pool and myocardium from 2D echocardiogram images.
+We found that a convolutional neural network configured in a unet architecture was effective at segmenting the blood pool but further work is required to effectively segment the myocardium.
 
 \section{Acknowledgements}
-Esther
-Andy
-Bram
-Nick
-Irina
-James
-Eric
-Mom
-Dad
-Lauren
+I would like to thank Esther and Andy for guiding me through this project.
+I did every step of this for the first time and learned more than I ever have.
+Thank you for your expertise and time.
+Thank you Bram for helping me understand echocardiograms and the potential space for algorithms such as mine in the NHS.
+I would also like to thank Nick, Irina, James, and Eric for helping me with deep learning python and bash and most of all for making me feel welcome in Beckett House.
+Thank you Mom and Dad for supporting me though this project and degree.
+Thank you Lauren for being at my side I can't picture any of this without you.
 
 \section{Intro}
 \subsection{Motivation}
@@ -44,10 +42,9 @@ The most prevalent method to assess these metrics is cardiac imaging.
 While there are many imaging modalities, ultrasound has been cemented as a cornerstone of cardiac imaging due to the non-invasive procedure low cost and real-time image acquisition.
 %why would you want this to be done automaticly
 Interpretation of ultrasound images is time intensive and can be challenging even for trained personnel.
-The automatic segmentation of the left ventricle blood pool %and myocardium
+The automatic segmentation of the left ventricle blood pool and myocardium
 would reduce the need for expert evaluation and inter-operator variance.%cite?
-More access to accurate data in clinical settings is always a good thing... why
-
+Access to more accurate clinical data with reduced wait times would better patient outcomes and reduce monetary strain on hospitals.
 \subsection{Metrics}
 %why are these metrics important
 %what do they measure
@@ -55,7 +52,7 @@ More access to accurate data in clinical settings is always a good thing... why
 Quantification of the performance of the heart is crucial for diagnosis of cardiac pathology.
 Due to the complexity of the heart and cardiovascular system as a whole the amount that can go wrong is staggering.
 We want the metrics that we collect to be illustrative of how the heart is functioning,
-reproducible
+reproducible,
 and easy to understand....% work on flow and clarity
 
 The two most common metrics that are collected during echocardiograms are left ventricular ejection fraction(LVEF) and left ventricular mass(LVM).\cite{ase_chamber_quant_update}
@@ -88,30 +85,25 @@ Young patient LVEF increased about 6\% more than older patients\cite{norm_EF_val
 These findings show that there is no bright line to determine what is normal or abnormal in LVEF.
 
 The American Society of Echocardiography has published general guidelines for LVEF classification.
-Reduced <= 40\%
-borderline 41\%-49\%
-normal 50\%-70\&
-
-
-
+Reduced LVEF should be classified as equal to or below 40\% with
+borderline being 41\%-49\%
+and normal function occupying the 50\%-70\% range.\cite{}
 
 %how is it used
-Many variables affect LVEF, this obfuscates its relation to cardiac health. 
-
-LVEF is useful because it is easy and consistent to measure. It is another piece of data about the function of the heart that can be monitored over time.
-Changes in LVEF can be useful in diagnosing common heart ailments like hypertrophic cardiomyopathy heart failure.
+As many variables affect LVEF its diagnostic value comes from its use in conjunction with other metrics. 
+However it is an excellent indicator for change in cardiac function because it is easy and consistent to measure.
+It is another piece of data about the function of the heart that can be monitored over time.
+Changes in LVEF can indicate common heart ailments like hypertrophic cardiomyopathy heart failure.
 
 Athletes can often test for LVEF below normal even though their hearts are healthy and functional\cite{ef_soa}.
 
 And LVEF can be within normal values while the function of the heart is impaired.
-HFpEF
-HFrEF
+Heart failure preserved ejection fraction (HFpEF) and heart failure reduced EF are conditions where the heart is failing to supply the body with enough blood
 LV systolic func
 LV diastolic func
 This is because EF only depends EDV and ESV and does not take into account the time duration or the geometry of the contraction.
 %how is it measured
-Measuring LVEF is usually measured non-invasive with 
-The vast majority of LVEF measurements are carried out by imaging the heart.
+Measuring LVEF is measured with cardiac imaging techniques. 
  \cite{understanding-echo}
 %as we are primarly working with images need segmentation
 %
@@ -120,9 +112,16 @@ The vast majority of LVEF measurements are carried out by imaging the heart.
 %what is it
 LVM is a measure of how thick the myocardium of the left ventricle is.
 It is a strong predictor for cardiovascular events\cite{cardiac_chamber_quant_update}, as it is an excellent indicator of the health of the myocardium.
-LVM should be measured at the end of diastole, when the left ventricle is relaxed and full of blood.
 
 %how is it calculated
+From 2D echocardiography images LVM is calculated by first segmenting the myocardium from the echo image.(2-4CH?)
+From this segmentation, the long as
+LVM should be measured at the end of diastole, when the left ventricle is relaxed and full of blood.
+In order to calculate the mass the volume of the myocardium must be measured.
+To approximate the volume with 2D echo methods the 
+Area Length Method
+This and other 2D LVV methods assume that the thickness of the wall is relatively uniform so hearts with regional thickness changes like those afflicted with HCM can lead to inaccurate measurements.
+We are only attempting to segment the myocardium from 2 and 4CH images as we do not have any short axis images, so we will not be calculating LVM directly. 
 %what can it tell us
 Hypertrophic cardiomyopathy (HCM), as indicated via elevated LVM(how elevated?) occurs when the left ventricle myocardium thickens to a point where heart function is impaired.
 There are elevated risks of dilated cardiomyopathy in athletes as the natural thickening of the ventricle walls due to exercise can mask the condition.
@@ -249,14 +248,14 @@ We also struggled with endocardial dropout as highlighted in the guidelines.
 While most every medical professional can take heart rate and blood pressure by hand, these tasks are now relagated to machines.\cite{pulse oxymmetry bp cuffs}
 In this case we find that it is best practice to take manual blood pressure and heart rate by hand because of the patient contact\cite{obs_guidelines}.
 Humans will pick up on variation within the heart rate that could be more insightful than the digital readout of automatic systems.
-We also don't patients to feel as if their care has been relagated to machines.
+We also don't patients to feel as if their care has been relegated to machines.
 As manual segmentation is prone to interoperator variance\cite{jacc_ef_p_and_c} and time spent manually segmenting images is time spent away from patients, an automatic procedure would be beneficial.
-While 2D echocardiograms are useful, the dialog with patients to determine how they view their physical abilities is just as valuable to determining wether more scans should be taken.
+While 2D echocardiograms are useful, the dialogue with patients to determine how they view their physical abilities is just as valuable to determining whether more scans should be taken.
 Qualitative judgement of echocardiograms would be expected if the cardiologist is given ample information to make a decision.
 For example, if a patient has an LVEF that looks to be normal and they report no issues associated with reduced EF or heart function, the cardiologist would not need to manually calculate LVEF.
-LVEF is well suited to automation because the metric is time consuming and variable compared to automatic methods and the metric is useful but almost never the sole reason to make a diagnosis or prognosis descicion, it is an indicator.
+LVEF is well suited to automation because the metric is time consuming and variable compared to automatic methods and the metric is useful but almost never the sole reason to make a diagnosis or prognosis description, it is an indicator.
 
-While cardiologists are experts at diagnosing what is wrong with a patient's heart, they sythesise an array of information that is comprised of much more than just LVEM and LVM.
+While cardiologists are experts at diagnosing what is wrong with a patient's heart, they synthesise an array of information that is comprised of much more than just LVEF and LVM.
 Many are able to make their diagnoses simply by looking at the echoes and making a qualitative judgement.
 When qualitative measurements are made
 variance
@@ -264,7 +263,7 @@ older methods
 Stat shape models
 Kalmann filters are
 
-Classicly, neural networks had been used to classify images.
+Classically, neural networks had been used to classify images.
 When an image is fed into the network, the network assigns a label to classify the contents of the image.
 This task requires a transformation of the spacial information of the image into feature information, or information about what the image contains. 
 Automatic semantic segmentation is the logical next step, where we not only want to know what is in an image, but what pixels contain our object.
@@ -328,7 +327,7 @@ What constitutes as feature information would not make much sense anywhere but w
 The information that is distilled as the image progresses through the downsampling phase is directly related to the overall purpose of the network. 
 The feature information in our case will be vital to the network to generate predicted masks for a given image.
 
-The subsequent expansion after the initial distilation of information gives the unet its "U" shape.
+The subsequent expansion after the initial distillation of information gives the unet its "U" shape.
 
 During the expansion phase, images from the contracting end are combined with the upsampled image.
 The network is "reminded" what the original image looks like with these connections.
@@ -337,7 +336,7 @@ The downsampling of the input image also allows us to use one filter size.
 Without downsampling we may need to use many filters of different sizes to capture differently sized features.
 
 %image illistrating filter size in comparison to say apex of heart in image of full res
-The structure of the unet from the orginal paper can be see in figure x
+The structure of the unet from the original paper can be see in figure x
 %read the unet paper and fill this section out this is the core of the project
 
 
@@ -618,20 +617,20 @@ In order to asess the best threshold value we will plot the networks true positi
 To assess the performance of our network under the 5 fold cross validation scheme, we tested every image in each fold's test set to get an average dice.
 Our 5 fold cross validation scheme generated the following metrics
 
-\begin{tabular}{ l | c | r }
-	dice loss & fold
-  \hline			
-  1 & 2 & 3 \\
-  4 & 5 & 6 \\
-  7 & 8 & 9 \\
-  \hline  
-\end{tabular}
+%\begin{tabular}{ l | c | r }
+%	dice loss & fold
+%  \hline			
+%  1 & 2 & 3 \\
+%  4 & 5 & 6 \\
+%  7 & 8 & 9 \\
+%  \hline  
+%\end{tabular}
 
 %training hist for one fold
 The training history for one of our folds is as follows.
 
 %ROC curve for one model
-To test different mask postprocessing thresholds we performed an ROC analysis on one image.
+To test the efficivness of our model we constructed an ROC curve for each cross validation model..
 
 % comparison of LVEF
 
@@ -649,15 +648,30 @@ This is a result that would have been arduous to perform without our automatic m
 \section{Discussion}
 %How did the method do
 Overall we are quite pleased with our network's performance on segmenting the left ventricle.
-
+The cross validated ROC curve shows excellent auc metrics om account of the high trur positive rate and low false positive rate.
+The auc, which is related to the accuracy of the test is very close to 1 for every fold.
+This shows that the model doesnt under or overestimate the area of the blood pool.
+However, the performance on segmenting the myocardium was not on par with the blood pool results.
 %what could it do better
+We constructed fewer data points for the myocardium becasue there were many echo images that did not contain the full epicardium.
+The thickness of the myocardium was also much more difficult to determine.
+We extrapolated heavily from regions with more defined thicknessess.
+We also manually segmented the myocardium, while most methods to calculate the LVM manually substract the blood pool volume from the volume of the epicardium.
+Considering the effectivness of our model on the bloodpool, perhaps the simpler segmentaion of the epicardium would have been more effective.
+
+Short axis images would allow us to not only be more sure about the thickness but also actually calculate the LVM of the heart.
+If short axis, 2CH, and 4CH views are all being collected, we recommend moving from 2D echos to 3D if LVM automatic LVM quantification is desired.
+
 %what needs to be done before this can see implementation
+As we have
 %we could get more metrics easier using auto seg
 %have example of plotting vent size though time
 
 \section{Further Research}
-Our project has for the most part been limited by thee fact that we were doing almost every aspect for the first time.
 If another team or person were to continue exploring deep learning on 2D echocardiogram data, this is where we recommend they spend their efforts.
+
+While we stated the need for short axis images, in order to determine the LVM, we recomend 3D echo methods.
+3D images remove geometric assumptions and would lead to more robust algorthms, even when irregular hearts are imaged.
 
 When we were manually segmenting the ventricle and myocardium from the echo images, in many cases it was exceedingly difficult to discern where the walls of the heart were.
 We also consulted a practising cardiologist, who corroborated this saying that in some cases the segmentation can be difficult.
@@ -681,7 +695,11 @@ longitudinal strain
 computer resources
 spec around batch size
 architecture
-elastic aug
+We only investiagted a unet architecture.
+While the unet is standard for biomedical segmentation, perhaps some other architectures like densenet\cite{densenet} could be explored.
+For our data augmentation, we only performed rigid transformations.
+Our thinking behind this was the network would probably use the edges of the ultrasound cone to find the ventricle and elastic deformations could disrupt this.
+Elastic deformations that are constrained to the interior of the cone should be explored.
 \section{Conclusion}
 
 \bibliography{references}
