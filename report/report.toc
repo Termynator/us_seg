@@ -1,32 +1,38 @@
+\setcounter {tocdepth}{0}
+\contentsline {section}{Project Plan}{a}
+\contentsline {subsection}{Problem}{a}
+\contentsline {subsection}{State of the Art}{a}
+\contentsline {subsection}{Aims}{a}
+\contentsline {subsection}{Work Plan}{a}
+\contentsline {subsection}{Review of project plan}{b}
+\setcounter {tocdepth}{2}
 \contentsline {section}{\numberline {1}Abstract}{1}
 \contentsline {section}{\numberline {2}Acknowledgements}{1}
 \contentsline {section}{\numberline {3}Intro}{2}
-\contentsline {subsection}{\numberline {3.1}Motivation}{2}
-\contentsline {subsection}{\numberline {3.2}Metrics}{2}
-\contentsline {subsection}{\numberline {3.3}Ejection Fraction}{3}
-\contentsline {subsection}{\numberline {3.4}Left Ventricular Mass}{5}
-\contentsline {subsection}{\numberline {3.5}Cardiac Imaging}{6}
-\contentsline {subsection}{\numberline {3.6}Ultrasound}{9}
-\contentsline {subsection}{\numberline {3.7}Echocardiogram}{10}
-\contentsline {subsection}{\numberline {3.8}Manual Segmentation}{10}
-\contentsline {subsection}{\numberline {3.9}Automatic Segmentation}{12}
-\contentsline {subsection}{\numberline {3.10}Deep Learning}{14}
-\contentsline {subsection}{\numberline {3.11}CNN}{16}
-\contentsline {subsection}{\numberline {3.12}Unet}{17}
-\contentsline {section}{\numberline {4}Method}{18}
-\contentsline {subsection}{\numberline {4.1}Programming Environment}{18}
-\contentsline {subsection}{\numberline {4.2}python modules}{19}
-\contentsline {subsection}{\numberline {4.3}Dataset}{22}
-\contentsline {subsubsection}{\numberline {4.3.1}dataset preprocessing}{23}
-\contentsline {subsection}{\numberline {4.4}training}{27}
-\contentsline {subsubsection}{\numberline {4.4.1}training params}{28}
-\contentsline {subsection}{\numberline {4.5}class organisation}{31}
-\contentsline {subsection}{\numberline {4.6}data generation}{31}
-\contentsline {subsection}{\numberline {4.7}Validation}{32}
-\contentsline {subsubsection}{\numberline {4.7.1}K Fold Validation}{32}
-\contentsline {subsubsection}{\numberline {4.7.2}Generated LVEF and LVM}{32}
-\contentsline {subsubsection}{\numberline {4.7.3}ROC Curve}{33}
+\contentsline {subsection}{Motivation}{2}
+\contentsline {subsection}{Metrics}{3}
+\contentsline {subsection}{Left Ventricular Ejection Fraction}{4}
+\contentsline {subsection}{Left Ventricular Mass}{6}
+\contentsline {subsection}{Cardiac Imaging}{7}
+\contentsline {subsection}{Ultrasound}{9}
+\contentsline {subsection}{Echocardiogram}{11}
+\contentsline {subsection}{Manual Segmentation}{11}
+\contentsline {subsection}{Automatic Segmentation}{13}
+\contentsline {subsection}{Deep Learning}{14}
+\contentsline {subsection}{Convolutional Neural Networks}{16}
+\contentsline {subsection}{Unet}{18}
+\contentsline {section}{\numberline {4}Method}{19}
+\contentsline {subsection}{Programming Environment}{19}
+\contentsline {subsection}{Python Modules}{20}
+\contentsline {subsection}{Dataset}{22}
+\contentsline {subsubsection}{Dataset Preprocessing}{24}
+\contentsline {subsection}{Training}{26}
+\contentsline {subsubsection}{Training Parameters}{27}
+\contentsline {subsection}{Class Organisation}{31}
+\contentsline {subsection}{Data Generation}{31}
+\contentsline {subsection}{Validation}{32}
+\contentsline {subsubsection}{K Fold Validation}{32}
+\contentsline {subsubsection}{ROC Curve}{32}
 \contentsline {section}{\numberline {5}Results}{33}
-\contentsline {section}{\numberline {6}Discussion}{34}
-\contentsline {section}{\numberline {7}Further Research}{35}
-\contentsline {section}{\numberline {8}Conclusion}{37}
+\contentsline {section}{\numberline {6}Discussion}{33}
+\contentsline {section}{\numberline {7}Further Research}{34}
