@@ -16,20 +16,34 @@ masks_ds = np.load(numpy_path + "masks_myo_ds.npy")
 
 dim = [800,800]
 
-test_inds = [[25,66,85,82,44, 3,32,87,97,42,13,95,14,90,56,50,47,17,72,83]
-            ,[43,79,20,98,15,48,33,46,63,39,92, 4,62,35,73,51,22,69,94,38]
-            ,[89,68,88,31,12,49, 9,19,60,37,58, 8,45,54,84,21,52,78,61,30]  
-            ,[16,41,23,65,10,76,67,81,64,86,11,55,40,18,70,34,77, 6,24,36] 
-            ,[53, 2,59,91,71,28, 7, 0,57,93,29, 1,75,96,80,26, 5,74,27,0]]
+seed = 0
+np.random.seed(seed)
+num_folds = 5
+fold_ind = np.arange(0,image_ds.shape[0])
+np.random.shuffle(fold_ind)
+folds_ind = np.array_split(fold_ind,num_folds)
+
+#test_inds = [[25,66,85,82,44, 3,32,87,97,42,13,95,14,90,56,50,47,17,72,83]
+#            ,[43,79,20,98,15,48,33,46,63,39,92, 4,62,35,73,51,22,69,94,38]
+#            ,[89,68,88,31,12,49, 9,19,60,37,58, 8,45,54,84,21,52,78,61,30]  
+#            ,[16,41,23,65,10,76,67,81,64,86,11,55,40,18,70,34,77, 6,24,36] 
+#            ,[53, 2,59,91,71,28, 7, 0,57,93,29, 1,75,96,80,26, 5,74,27,0]]
 
 dice = np.zeros([5,20])
 for i in range(0,5):
 # load model
     print("fold: " + str(i+1))
-    name = "vent_cv_" + str(i+1)
-   
+    name = "myo_cv_" + str(i+1)
+
+# make correct data sets
+    train_ind = np.concatenate(np.delete(folds_ind,i,0))
+    test_ind = folds_ind[i]
+    print(train_ind)
+    print(test_ind)
+
+#    test_ind = test_inds[i]
+
 #load coresponding 5 fold cv validation set
-    test_ind = test_inds[i]
     image_test_ds = image_ds[test_ind,:,:,:]
     masks_test_ds = masks_ds[test_ind,:,:,:]
  
@@ -51,7 +65,7 @@ for i in range(0,5):
 plt.xlabel("1-Specificity")
 plt.ylabel("Sensitivity")
 plt.legend()
-plt.title("Cross Validated ROC Curve: Blood Pool Segmentation")
+plt.title("Cross Validated ROC Curve: LV Myocardium Segmentation")
 plt.show()
 
 # get avg dice loss
